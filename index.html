@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <!-- flow-rebuild template (Growth Audit, v3: + walkthrough video, phone view/QR, localization, paywall today vs proposed). Replace every double-brace placeholder, everything between
@@ -476,6 +477,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
 .wm-fbm{position:relative;overflow:hidden;aspect-ratio:4/5}
 .wm-fbm img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
 .wm-fbm img.wm-low{object-position:50% 80%}
+.wm-fbm video{width:100%;height:100%;object-fit:cover;object-position:50% 80%;display:block}
 .wm-fbp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(0,0,0,.5);color:var(--b-primary-ink);display:grid;place-items:center;font:700 21px var(--b-font);padding-left:4px}
 .wm-fbl{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--b-bg)}
 .wm-fbl div{flex:1;display:flex;flex-direction:column}
@@ -663,7 +665,287 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
 @media (prefers-reduced-motion:reduce){.au-mx-words span,.au-mx .au-hp img,.au-mx-icon{animation:none}.au-rv{opacity:1;translate:none;transition:none}.au-finger{transition:opacity .2s}}
 html.shot .au-rv,html.phoneonly .au-rv{opacity:1;translate:none}
 /* MOTION:END */
+/* JUNOCSS:START — Bogdan's Growth Audit shell (bterzic123.github.io/planoly-flow-rebuild), ported with his own sizes:
+   light page, frosted pill nav, Overview / Prototype, one cream card colour, one accent, a warm-dark hero of their tiles. */
+html.jn{color-scheme:only light;--jn-ink:#1b1b1a;--jn-ink2:#3d3c3a;--jn-mute:#77756f;--jn-faint:#c9c6c0;--jn-cream:#f3f1ed;--jn-cream2:#ebe8e2;--jn-hair:rgba(27,27,26,.09);--jn-dark:#22211f}
+html.jn body{background:#fff;color:var(--jn-ink2);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.55}
+html.jn body > .au-nav,html.jn #top,html.jn .au-mx-stats,html.jn #why,html.jn #ideas,html.jn #ads,html.jn #prototype,html.jn #compare,html.jn #sources{display:none!important}
+:where(.jn-root) *{box-sizing:border-box}
+:where(.jn-root) h1,:where(.jn-root) h2,:where(.jn-root) h3,:where(.jn-root) h4,:where(.jn-root) p,:where(.jn-root) dl,:where(.jn-root) dd{margin:0}
+:where(.jn-root) button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+:where(.jn-root) a{color:inherit;text-decoration:none}
+.jn-wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+/* nav */
+.jn-navw{position:sticky;top:0;z-index:60;padding:12px 12px 0}
+.jn-nav{max-width:1200px;margin:0 auto;height:60px;display:flex;align-items:center;gap:14px;padding:0 10px 0 22px;border-radius:999px;
+  background:rgba(243,241,237,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--jn-hair)}
+.jn-logo{display:flex;align-items:center;gap:9px;font-weight:600;font-size:16px;letter-spacing:-.01em;white-space:nowrap;color:var(--jn-ink)}
+.jn-logo img{height:var(--jn-logo-h,24px);width:auto;display:block}
+.jn-logo img.jn-ic{height:28px;border-radius:7px}
+.jn-logo .jn-mask{display:block;height:var(--jn-logo-h,22px);aspect-ratio:var(--jn-logo-ar,4);background:var(--jn-ink);-webkit-mask:var(--jn-logo) left center/contain no-repeat;mask:var(--jn-logo) left center/contain no-repeat}
+.jn-sep{width:1px;height:20px;background:var(--jn-faint)}
+.jn-by{font-size:14px;color:var(--jn-mute);white-space:nowrap}
+.jn-tabs{margin-left:auto;display:flex;gap:2px}
+.jn-tabs button{height:40px;padding:0 16px;border-radius:999px;font-size:15px;font-weight:500;color:var(--jn-mute)}
+.jn-tabs button.on{background:#fff;color:var(--jn-ink);box-shadow:0 1px 3px rgba(27,27,26,.1)}
+.jn-demo{height:44px;display:inline-flex;align-items:center;padding:0 20px;border-radius:999px;background:var(--jn-ink);color:#fff!important;font-size:15px;font-weight:500;white-space:nowrap}
+.jn-view{display:none}.jn-view.on{display:block}
+/* type */
+.jn-kick{font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--jn-mute);margin-bottom:14px}
+.jn-h2{font-size:clamp(30px,3.9vw,48px);line-height:1.08;letter-spacing:-.03em;font-weight:600;max-width:880px;color:var(--jn-ink)}
+.jn-h2 b{font-weight:600;color:var(--jn-mute)}
+.jn-p{font-size:18px;line-height:1.6;color:var(--jn-mute);max-width:780px;margin-top:18px}
+.jn-sec{padding:96px 0 0}
+/* hero: a warm-dark frame of their own tiles filling, like Bogdan's planner slots */
+.jn-hero{position:relative;margin:-72px 12px 0;min-height:720px;border-radius:20px;overflow:hidden;background:var(--jn-dark);color:#fff;display:flex;align-items:flex-end}
+.jn-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(27,27,26,.95) 0%,rgba(27,27,26,.8) 50%,rgba(27,27,26,.3) 100%);pointer-events:none;z-index:1}
+.jn-slots{position:absolute;inset:0;display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(6,1fr);gap:3px;padding:3px;pointer-events:none}
+.jn-slots i{position:relative;display:block;background:rgba(255,255,255,.04);overflow:hidden;font-style:normal}
+.jn-slots i::before{content:"";position:absolute;inset:0;background:var(--c);opacity:0;animation:jn-fill 9s var(--d) infinite}
+.jn-slots i span{position:absolute;left:10px;right:10px;bottom:10px;font:600 13px/1.25 Inter,sans-serif;color:#fff;opacity:0;animation:jn-fill 9s var(--d) infinite;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+@keyframes jn-fill{0%,6%{opacity:0}12%,78%{opacity:.9}86%,100%{opacity:0}}
+.jn-hin{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:150px 40px 56px;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
+.jn-eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);font-weight:500}
+.jn-h1{font-size:clamp(40px,5.6vw,72px);line-height:1.03;letter-spacing:-.03em;font-weight:600;margin-top:16px;max-width:800px;color:#fff}
+.jn-h1 em{font-style:normal;color:var(--jn-lt)}
+.jn-lead{font-size:clamp(17px,1.7vw,19px);line-height:1.55;color:rgba(255,255,255,.86);max-width:640px;margin-top:20px}
+.jn-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.jn-pill{height:50px;display:inline-flex;align-items:center;gap:8px;padding:0 24px;border-radius:999px;font-size:17px;font-weight:500;white-space:nowrap}
+.jn-pill.w{background:#fff;color:var(--jn-ink)!important}
+.jn-pill.g{background:rgba(255,255,255,.14);color:#fff!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.jn-pill.k{height:48px;font-size:15px;background:var(--jn-ink);color:#fff!important}
+.jn-pill.c{height:48px;font-size:15px;background:var(--jn-cream);color:var(--jn-ink)!important}
+.jn-byline{margin-top:16px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.66);max-width:640px}
+/* the fan: three of their screens (hero stills already carry a bezel, so no extra frame), the app icon in front */
+.jn-fan{position:relative;height:420px}
+.jn-fan img.jn-sh{position:absolute;width:180px;height:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+.jn-fan img.jn-sh:nth-child(1){left:0;top:70px;transform:rotate(-8deg)}
+.jn-fan img.jn-sh:nth-child(2){left:29%;top:10px;transform:rotate(-1deg);z-index:2}
+.jn-fan img.jn-sh:nth-child(3){left:58%;top:80px;transform:rotate(7deg)}
+.jn-fan img.jn-ic{position:absolute;z-index:4;left:6px;top:-4px;width:76px;height:76px;border-radius:19px;box-shadow:0 0 0 3px rgba(255,255,255,.92),0 16px 34px rgba(0,0,0,.5);animation:jn-bob 3.4s ease-in-out infinite}
+@keyframes jn-bob{50%{transform:translateY(-6px)}}
+/* stat strip */
+.jn-stats{margin:12px 12px 0;background:var(--jn-cream);border-radius:20px}
+.jn-stats > .jn-wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.jn-stat{padding:30px 18px;text-align:center;border-left:1px solid var(--jn-hair)}
+.jn-stat:first-child{border-left:0}
+.jn-stat b{display:block;font-size:38px;font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--jn-ink)}
+.jn-stat b i{font-style:normal;color:var(--jn-acc2)}
+.jn-stat span{display:block;font-size:14px;color:var(--jn-mute);margin-top:6px;line-height:1.35}
+/* what this is */
+.jn-two{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+.jn-launch{margin-top:30px}
+.jn-launch h4{font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--jn-mute);margin-bottom:12px}
+.jn-launch ol{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:jl}
+.jn-launch li{display:grid;grid-template-columns:24px 1fr;gap:12px;font-size:15.5px;line-height:1.5;color:var(--jn-ink2);counter-increment:jl}
+.jn-launch li::before{content:counter(jl);width:24px;height:24px;border-radius:50%;background:var(--jn-soft);color:var(--jn-acc);font-size:12px;font-weight:600;display:grid;place-items:center}
+.jn-launch li b{color:var(--jn-ink);font-weight:600}
+.jn-note{background:var(--jn-cream);border-radius:16px;padding:22px 24px}
+.jn-note + .jn-note{margin-top:10px}
+.jn-note h4{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600;color:var(--jn-ink);margin-bottom:6px}
+.jn-note h4 i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--jn-ink);color:#fff;font-size:12px;display:grid;place-items:center;flex:none}
+.jn-note p{font-size:15px;line-height:1.55;color:var(--jn-mute)}
+/* your ads */
+.jn-adtabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px}
+.jn-adtabs button{height:42px;padding:0 16px;border-radius:999px;background:var(--jn-cream);font-size:14.5px;font-weight:500;color:var(--jn-ink2);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jn-adtabs button.on{background:var(--jn-ink);color:#fff}
+.jn-lib{margin-top:14px;background:var(--jn-cream);border-radius:20px;padding:32px;display:grid;grid-template-columns:.78fr 1fr;gap:36px;align-items:start}
+.jn-media{width:100%;max-width:338px;margin:0 auto}
+.jn-vid{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:var(--ar,9/16);max-height:600px;width:100%}
+.jn-vid video,.jn-vid > img{width:100%;height:100%;object-fit:cover;display:block}
+.jn-vid > img.jn-fit{object-fit:contain;background:#fff}
+.jn-tag{position:absolute;z-index:3;top:10px;left:10px;background:rgba(255,255,255,.94);color:var(--jn-ink);font-size:11px;font-weight:600;letter-spacing:.06em;padding:5px 10px;border-radius:999px;display:flex;gap:6px;align-items:center;text-transform:uppercase}
+.jn-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:#0866FF}
+.jn-tag.asa::before{background:#0a84ff}
+.jn-tag.img::before{background:#8a8a8e}
+.jn-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.jn-strip img{width:100%;aspect-ratio:var(--ar,9/16);object-fit:cover;border-radius:8px;display:block;background:#ddd}
+.jn-adb .hook{font-size:24px;font-weight:600;letter-spacing:-.01em;line-height:1.3;color:var(--jn-ink)}
+.jn-adb .en{margin-top:6px;font-size:14.5px;color:var(--jn-mute);line-height:1.45}
+.jn-adb .meta{margin-top:10px;font-size:13.5px;color:var(--jn-mute);line-height:1.45}
+.jn-adb dl{margin-top:8px;font-size:15px;line-height:1.5}
+.jn-adb dt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--jn-mute);margin-top:14px;font-weight:600}
+.jn-adb dd{color:var(--jn-ink2)}
+.jn-adb .go{margin-top:20px}
+.jn-more{margin-top:16px;font-size:14px;line-height:1.55;color:var(--jn-mute);max-width:880px}
+.jn-foot-l{margin-top:8px;font-size:14px;line-height:1.55;color:var(--jn-mute);max-width:880px}
+/* Apple Ads search ad, as the App Store shows it (animated) */
+.jn-vid.asa{--ar:3/4;background:#fff}
+.jn-asa{position:absolute;inset:0;background:#fff;color:#111;padding:44px 14px 14px;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,sans-serif;display:flex;flex-direction:column;gap:12px}
+.jn-asa-bar{display:flex;align-items:center;gap:8px;height:38px;border-radius:11px;background:#eeeef0;padding:0 11px;font-size:15px;color:#111}
+.jn-asa-bar::before{content:"";width:14px;height:14px;border:2px solid #8e8e93;border-radius:50%;flex:none}
+.jn-asa-q::after{content:"";display:inline-block;width:2px;height:17px;background:#0a84ff;margin-left:1px;vertical-align:-3px;animation:jn-caret 1s steps(1) infinite}
+@keyframes jn-caret{50%{opacity:0}}
+.jn-asa-ad{display:flex;gap:10px;align-items:center;opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s}
+.jn-asa.show .jn-asa-ad,.jn-asa.show .jn-asa-shots{opacity:1;transform:none}
+.jn-asa-ad img{width:56px;height:56px;border-radius:13px;flex:none;border:1px solid rgba(0,0,0,.06)}
+.jn-asa-ad div{flex:1;min-width:0}
+.jn-asa-ad b{display:block;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jn-asa-ad small{display:block;font-size:12.5px;color:#8e8e93;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jn-asa-ad em{display:inline-block;margin-top:3px;font-style:normal;font-size:10.5px;font-weight:700;color:#fff;background:#0a84ff;border-radius:4px;padding:1px 5px}
+.jn-asa-ad span{flex:none;background:#eeeef0;color:#0a84ff;font-weight:700;font-size:14px;border-radius:999px;padding:6px 16px}
+.jn-asa-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;align-items:start;opacity:0;transform:translateY(10px);transition:opacity .5s .15s,transform .5s .15s}
+.jn-asa-shots img{width:100%;height:auto;aspect-ratio:1242/2208;object-fit:cover;object-position:top;border-radius:9px;border:1px solid rgba(0,0,0,.06)}
+/* a Meta image ad, as the feed shows it */
+.jn-post{position:absolute;inset:0;background:#fff;color:#050505;padding:44px 0 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;display:flex;flex-direction:column}
+.jn-post-h{display:flex;align-items:center;gap:9px;padding:0 12px}
+.jn-post-h img{width:36px;height:36px;border-radius:50%;flex:none}
+.jn-post-h div{flex:1;min-width:0}
+.jn-post-h b{display:block;font-size:14px;font-weight:600}
+.jn-post-h small{display:block;font-size:12px;color:#65676b}
+.jn-post-h span{color:#65676b;font-weight:700}
+.jn-post-t{margin:10px 12px;font-size:13.5px;line-height:1.38;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.jn-post-m{flex:1;min-height:0;overflow:hidden;background:#000}
+.jn-post-m img{width:100%;height:100%;object-fit:cover;display:block;animation:jn-kb 14s ease-in-out infinite alternate}
+@keyframes jn-kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.jn-post-l{display:flex;align-items:center;gap:10px;background:#f0f2f5;padding:10px 12px 14px}
+.jn-post-l div{flex:1;min-width:0}
+.jn-post-l small{display:block;font-size:11px;color:#65676b;text-transform:uppercase}
+.jn-post-l b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:13.5px;line-height:1.3;font-weight:600}
+.jn-post-l span{flex:none;background:#e4e6eb;border-radius:6px;padding:8px 12px;font-size:13.5px;font-weight:600}
+/* idea rows */
+.jn-list{margin-top:40px;display:flex;flex-direction:column;max-width:980px;border-top:1px solid var(--jn-hair)}
+.jn-row{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:26px 6px;border-bottom:1px solid var(--jn-hair);width:100%;text-align:left;transition:background .2s}
+.jn-row:hover{background:#faf9f7}
+.jn-row > span{font-size:22px;font-weight:600;color:var(--jn-mute);letter-spacing:-.02em;padding-top:2px;font-variant-numeric:tabular-nums}
+.jn-row h3{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.3;color:var(--jn-ink)}
+.jn-row p{font-size:15.5px;line-height:1.55;color:var(--jn-mute);margin-top:6px;max-width:780px}
+.jn-rowf{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+.jn-chip{display:inline-flex;align-items:baseline;gap:8px;background:var(--jn-soft);color:var(--jn-acc);border-radius:999px;padding:5px 12px;font-size:14.5px;font-weight:600}
+.jn-chip small{font-weight:400;font-size:12.5px}
+.jn-see{font-size:14.5px;font-weight:500;color:var(--jn-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--jn-faint)}
+/* outcome */
+.jn-outc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.jn-osh{position:relative;overflow:hidden;border-radius:20px;background:var(--jn-dark);color:#fff;padding:36px 32px;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end}
+.jn-og{position:absolute;left:50%;top:32px;width:58%;max-width:300px;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,1fr);gap:3px;opacity:.95}
+.jn-og i{aspect-ratio:1;background:var(--c);display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;font:600 12px/1.25 Inter,sans-serif;font-style:normal;color:#fff;overflow:hidden}
+.jn-osh::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(27,27,26,.98) 46%,rgba(27,27,26,.1) 80%)}
+.jn-osh > *:not(.jn-og){position:relative;z-index:2}
+.jn-osh .k{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.jn-osh h3{font-size:30px;font-weight:600;letter-spacing:-.03em;margin-top:8px;line-height:1.15;max-width:460px;color:#fff}
+.jn-nums{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.jn-nums div{background:rgba(255,255,255,.1);border-radius:16px;padding:14px 20px;min-width:130px}
+.jn-nums b{display:block;font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--jn-lt)}
+.jn-nums span{font-size:13.5px;color:rgba(255,255,255,.8)}
+.jn-osh .cap{font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.78);margin-top:18px;max-width:470px}
+.jn-do{display:flex;flex-direction:column;gap:12px}
+.jn-do div{background:var(--jn-cream);border-radius:20px;padding:24px 26px;flex:1}
+.jn-do small{display:block;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--jn-mute);margin-bottom:6px}
+.jn-do h4{font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--jn-ink)}
+.jn-do p{font-size:15px;line-height:1.55;color:var(--jn-mute);margin-top:6px}
+.jn-end{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.jn-footn{font-size:13px;line-height:1.6;color:var(--jn-mute);padding-top:30px;padding-bottom:60px;border-top:1px solid var(--jn-hair);margin-top:96px}
+.jn-footn p{margin-bottom:10px;max-width:980px}
+.jn-footn b{color:var(--jn-ink2);font-weight:600}
+.jn-footn a{text-decoration:underline}
+.jn-footn details summary{cursor:pointer;color:var(--jn-ink2);font-weight:500;margin:6px 0 10px}
+/* prototype view */
+.jn-ph{padding-top:72px}
+.jn-ph .jn-h1p{font-size:clamp(36px,4.8vw,58px);line-height:1.05;letter-spacing:-.035em;font-weight:600;max-width:900px;color:var(--jn-ink)}
+.jn-ph .jn-h1p b{font-weight:600;color:var(--jn-mute)}
+.jn-tool{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:24px}
+.jn-seg{display:inline-flex;background:var(--jn-cream);border-radius:999px;padding:4px}
+.jn-seg button{height:36px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--jn-ink2)}
+.jn-seg button.on{background:#fff;color:var(--jn-ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+html.jn #duo{max-width:1200px;width:auto;margin:0 auto;padding:0 40px}
+html.jn #duo > .au-split,html.jn #duo > .au-duo-stats,html.jn #duo > .au-pf,html.jn #duo > .au-duo-h,html.jn #duo > .au-duo-ideas,html.jn #duo > .au-duo-tbl,html.jn #duo > .au-duo-next,html.jn #duo > .au-adn,html.jn #duo > .au-duo-hint{display:none!important}
+html.jn .au-walk{position:relative;top:auto;z-index:40;display:flex;align-items:center;gap:12px;margin:22px 0 0;padding:0;background:none;box-shadow:none;border-radius:999px}
+html.jn .au-walk #walkBtn{height:44px;padding:0 20px;border-radius:999px;background:var(--jn-ink);color:#fff;font-size:15px;font-weight:500;border:0;flex:none}
+html.jn .au-walk .au-walkbar{flex:1;min-width:0;background:var(--jn-ink);color:#fff;border-radius:14px;padding:10px 16px 12px;font-size:14px;line-height:1.4}
+html.jn .au-walk .au-walkbar b{color:#fff}
+html.jn .au-walk .au-walkbar i{display:block;height:3px;border-radius:3px;background:rgba(255,255,255,.18);margin-top:8px;overflow:hidden}
+html.jn .au-walk .au-walkbar i b{display:block;height:100%;background:var(--jn-lt);width:0;transition:width .5s}
+html.jn .au-walk:not(.on) .au-walkbar{display:none}
+html.jn .au-walk.on{position:sticky;top:84px}
+html.jn .au-duo-steps{justify-content:flex-start;margin-top:14px;gap:8px}
+html.jn .au-duo-steps button{height:44px;padding:0 18px;border:0;background:var(--jn-cream);color:var(--jn-ink2);font-size:15px;font-weight:500;border-radius:999px}
+html.jn .au-duo-steps button:hover{background:var(--jn-cream2)}
+html.jn .au-duo-steps button.au-today{background:#fff;box-shadow:inset 0 0 0 1.5px var(--jn-faint);border:0;color:var(--jn-mute)}
+html.jn .au-duo-steps button.on{background:var(--jn-ink);color:#fff;box-shadow:none}
+html.jn .au-duo-steps button.au-diff::after{background:var(--jn-acc2);border-color:#fff}
+html.jn .au-duo-sep{color:var(--jn-mute);letter-spacing:.12em;font-weight:500}
+html.jn .au-duo-stepcap{text-align:left;margin:14px 0 0;color:var(--jn-ink2);max-width:780px;font-size:15px}
+html.jn .au-duo.au-n3{margin-top:30px;gap:28px;width:auto;margin-left:0;transform:none}
+html.jn .au-duo-ph{width:312px}
+html.jn .au-duo-fr{width:312px;height:675px;border-radius:46px;box-shadow:0 0 0 6px var(--au-ring),0 30px 60px rgba(27,27,26,.22)}
+html.jn .au-duo-fr iframe{transform:scale(.8)}
+html.jn .au-duo-pill{height:34px;background:var(--jn-cream);box-shadow:none;border-radius:999px;font-size:13.5px;font-weight:500;padding:0 14px 0 6px;max-width:332px;color:var(--jn-ink2);margin:0 auto 14px;width:fit-content}
+html.jn .au-duo-pill b{height:24px;padding:0 9px;display:inline-flex;align-items:center;background:#0866FF;font-size:11.5px;font-weight:500;border-radius:99px}
+html.jn .au-duo-pill.asa b{background:#1b1b1a}
+html.jn .au-duo-cap{text-align:center;color:var(--jn-mute);min-height:84px;margin-top:16px;font-size:14px}
+html.jn .au-duo-cap .au-duo-k{color:var(--jn-ink);letter-spacing:.12em;font-size:12px;margin-bottom:4px}
+html.jn .au-duo-recs{margin-top:6px}
+html.jn .au-rec{background:var(--jn-cream);border:0;border-radius:14px}
+html.jn .au-rec:hover,html.jn .au-rec.on{background:#fff;box-shadow:inset 0 0 0 1.5px var(--au-ring)}
+html.jn .au-rec>i{background:var(--au-ring)}
+html.jn .au-rec mark{background:var(--jn-soft);color:var(--jn-acc)}
+html.jn .au-rec-v{color:var(--jn-ink);letter-spacing:.1em}
+html.jn .au-duo-tog button{border:0;background:var(--jn-cream)}
+html.jn .au-duo-tog button.on{background:var(--jn-ink)}
+.jn-icards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:64px}
+.jn-icard{background:var(--jn-cream);border-radius:20px;padding:26px 28px;text-align:left;display:flex;flex-direction:column;gap:8px;transition:box-shadow .2s,background .2s}
+.jn-icard:hover{background:var(--jn-cream2)}
+.jn-icard.on{box-shadow:inset 0 0 0 2px var(--jn-acc2)}
+.jn-icard:last-child:nth-child(odd){grid-column:1/-1}
+.jn-icard > small{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--jn-acc2)}
+.jn-icard h4{font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--jn-ink)}
+.jn-icard p{font-size:15px;line-height:1.55;color:var(--jn-mute)}
+.jn-icard .kept{font-size:13px;color:var(--jn-mute);border-top:1px solid var(--jn-hair);padding-top:10px;margin-top:6px}
+.jn-qr{position:relative;overflow:hidden;margin-top:40px;border-radius:20px;background:var(--jn-dark);color:#fff;padding:30px 32px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.jn-qg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(4,1fr);gap:3px;padding:3px}
+.jn-qg i{background:var(--c);opacity:.85}
+.jn-qr::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(27,27,26,.95) 30%,rgba(27,27,26,.55))}
+.jn-qr > *:not(.jn-qg){position:relative;z-index:2}
+.jn-qr img{width:123px;height:123px;image-rendering:pixelated;background:#fff;border-radius:12px;padding:6px;flex:none}
+.jn-qr div.t{flex:1;min-width:240px}
+.jn-qr h4{font-size:24px;font-weight:600;letter-spacing:-.02em;color:#fff}
+.jn-qr p{margin-top:4px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.82);max-width:520px}
+.jn-qr .jn-full{display:none}
+.jn-protofoot{padding:28px 0 64px;font-size:13px;line-height:1.55;color:var(--jn-mute)}
+@media (max-width:1180px){
+  html.jn .au-duo.au-n3{gap:16px}
+  html.jn .au-n3 .au-duo-ph{width:250px}html.jn .au-n3 .au-duo-fr{width:250px;height:541px;border-radius:38px}html.jn .au-n3 .au-duo-fr iframe{transform:scale(.641)}
+}
+@media (max-width:1080px){.jn-qr img{display:none}.jn-qr .jn-full{display:inline-flex}}
+@media (max-width:980px){
+  .jn-hin{grid-template-columns:1fr;padding-top:120px;padding-bottom:36px}
+  .jn-hero{min-height:0}
+  .jn-fan{height:330px;max-width:520px}
+  .jn-two,.jn-lib,.jn-outc{grid-template-columns:1fr}
+  .jn-two{gap:36px}
+  .jn-stats > .jn-wrap{grid-template-columns:repeat(2,1fr)}
+  .jn-stat:nth-child(3){border-left:0}
+  .jn-stat:nth-child(n+3){border-top:1px solid var(--jn-hair)}
+  .jn-slots{grid-template-columns:repeat(5,1fr)}
+  .jn-slots i:nth-child(n+31){display:none}
+  .jn-hero::after{background:linear-gradient(180deg,rgba(27,27,26,.82),rgba(27,27,26,.9))}
+  .jn-slots i span{display:none}
+}
+@media (max-width:820px){
+  html.jn .au-n3 .au-duo-ph{width:304px}html.jn .au-n3 .au-duo-fr{width:304px;height:658px;border-radius:44px}html.jn .au-n3 .au-duo-fr iframe{transform:scale(.7795)}
+}
+@media (max-width:720px){
+  .jn-wrap,html.jn #duo{padding:0 18px}
+  .jn-navw{padding:10px 10px 0}
+  .jn-nav{padding:0 6px 0 16px;gap:10px;height:56px}
+  .jn-by,.jn-sep{display:none}
+  .jn-tabs button{padding:0 11px;font-size:13.5px;height:36px}
+  .jn-demo{height:38px;padding:0 13px;font-size:13.5px}
+  .jn-fan{display:none}
+  .jn-hin{padding:104px 22px 30px}
+  .jn-sec{padding-top:72px}
+  .jn-lib{padding:18px;gap:24px}
+  .jn-row{grid-template-columns:40px 1fr;gap:10px}
+  .jn-icards{grid-template-columns:1fr}
+  .jn-osh{min-height:400px;padding:26px 22px}
+  .jn-pill{font-size:15.5px;height:46px;padding:0 20px}
+}
+@media (max-width:520px){.jn-logo span.jn-name,.jn-logo .jn-mask{display:none}.jn-demo{padding:0 11px}.jn-stat b{font-size:30px}}
+@media (prefers-reduced-motion:reduce){.jn-fan img.jn-ic,.jn-post-m img{animation:none}.jn-slots i::before,.jn-slots i span{animation:none;opacity:.8}}
+html.jn{--jn-dark:#22211f;--jn-lt:#f7b1c6;--jn-acc:#3b2530;--jn-acc2:#ed5180;--jn-soft:#fce7ed}
+/* JUNOCSS:END */
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" id="jnFont">
 </head>
 <body>
 
@@ -813,7 +1095,7 @@ html.shot .au-rv,html.phoneonly .au-rv{opacity:1;translate:none}
   <div class="wm-fb">
     <div class="wm-fbh"><span class="wm-av">M</span><div><b>Mom-to-be 2025: I'm Pregnant</b><small>Sponsored · ⓘ</small></div><span>···</span></div>
     <p class="wm-fbt">Best Pregnancy App 2026 👑<br>❤️ - Personalized pregnancy<br>👶🏽 - Track your baby in 3D<br>✅ - Checklists for each trimester</p>
-    <div class="wm-fbm"><img data-show="ad:a" src="assets/ads/p9.jpg" alt=""><img data-show="ad:b" src="assets/ads/p23.jpg" alt=""><img class="wm-low" data-show="ad:c" src="assets/ads/c-cal.jpg" alt=""><span class="wm-fbp">▶</span></div>
+    <div class="wm-fbm"><video data-show="ad:a" src="assets/ads/ad-a.mp4" poster="assets/ads/ad-a-poster.jpg" style="object-position:50% 50%" autoplay muted loop playsinline></video><video data-show="ad:b" src="assets/ads/ad-b.mp4" poster="assets/ads/ad-b-poster.jpg" style="object-position:50% 30%" autoplay muted loop playsinline></video><video class="wm-low" data-show="ad:c" src="assets/ads/ad-c.mp4" poster="assets/ads/ad-c-poster.jpg" autoplay muted loop playsinline></video></div>
     <div class="wm-fbl"><div><small>ITUNES.APPLE.COM</small><b>🔥 FREE APP 🔥</b></div><button class="wm-fbb" data-go="weeks">Install now</button></div>
   </div>
 </section>
@@ -2324,6 +2606,196 @@ function tourInit(){
 /* DUO:END */
 </script>
 <script>
+/* JUNO:START — Bogdan's Growth Audit shell around our engine: Overview (hero frame + fan, stat strip, what this is,
+   your ads with the ad itself playing, five idea rows, potential outcome, footnote) and Prototype (the three version
+   phones from #duo, idea cards, QR card). Config: #junoData. Off inside ?embed / ?shot / ?phone / ?tour / ?hero / ?app. */
+(function run(){
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', run); return; }
+  var Q = location.search, H = document.documentElement;
+  if (/[?&](embed|shot|phone|tour|hero|app)\b/.test(Q) || H.classList.contains('appmode')) return;
+  var el = document.getElementById('junoData'); if (!el) return;
+  var J = JSON.parse(el.textContent), C = window.C || {};
+  var dd = document.getElementById('duoData'), D = dd ? JSON.parse(dd.textContent) : {flows: []};
+  var md = document.getElementById('motionData'), M = md ? JSON.parse(md.textContent) : {hero: {}};
+  H.classList.add('jn');
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return [].slice.call((r || document).querySelectorAll(s)); }
+  function halves(a, tag){ return Array.isArray(a) ? a[0] + (a[1] ? ' <' + tag + '>' + a[1] + '</' + tag + '>' : '') : (a || ''); }
+  var app = C.app || J.app || '', demo = J.demo || 'https://adapty.io/schedule-demo/';
+  var icon = J.icon || (M.hero && M.hero.icon) || '';
+  var root = document.createElement('div'); root.className = 'jn-root';
+
+  /* nav: their mark, "Growth audit · by Adapty", the two views, Book a demo */
+  var L = J.logo || {}, logo;
+  if (L.mask) logo = '<span class="jn-mask" role="img" aria-label="' + app + '" style="--jn-logo:url(' + L.src + ');--jn-logo-ar:' + (L.ar || 4) + ';--jn-logo-h:' + (L.h || 22) + 'px"></span>';
+  else if (L.src) logo = '<img src="' + L.src + '" alt="' + app + '" style="--jn-logo-h:' + (L.h || 24) + 'px">';
+  else logo = '<img class="jn-ic" src="' + icon + '" alt=""><span class="jn-name">' + app + '</span>';
+  var nav = '<div class="jn-navw"><nav class="jn-nav" aria-label="Views"><span class="jn-logo">' + logo + '</span><i class="jn-sep"></i><span class="jn-by">Growth audit · by Adapty</span>' +
+    '<div class="jn-tabs"><button type="button" data-v="over" class="on">Overview</button><button type="button" data-v="proto">Prototype</button></div>' +
+    '<a class="jn-demo" href="' + demo + '" target="_blank" rel="noopener">Book a demo</a></nav></div>';
+
+  /* 1 hero frame: their world behind, the gap in two halves, a fan of their screens with the icon on top */
+  var h = J.hero || {}, words = h.words || (M.hero && M.hero.words) || [];
+  /* their colours (muted by apply.py) and their own words fill the hero's tiles, the way Bogdan's planner slots fill */
+  var TC = J._tiles && J._tiles.length ? J._tiles : ['#7d7a75'];
+  function tiles(n, withWords){ var o = ''; for (var k = 0; k < n; k++) o += '<i style="--c:' + TC[(k * 4) % TC.length] + ';--d:' + (-((k * 1.37) % 9)).toFixed(2) + 's">' + (withWords && words.length ? '<span>' + words[k % words.length] + '</span>' : '') + '</i>'; return o; }
+  var fan = (h.fan || (C.hero || []).map(function(id){ return 'assets/hero/' + id + '.png'; })).slice(0, 3).map(function(s){ return '<img class="jn-sh" src="' + s + '" alt="">'; }).join('');
+  var hero = '<header class="jn-hero"><div class="jn-slots" aria-hidden="true">' + tiles(54, true) + '</div><div class="jn-hin"><div>' +
+    '<div class="jn-eyebrow">Growth audit · ' + (J.month || '') + ' · Prepared by Adapty</div><h1 class="jn-h1">' + halves(h.h1, 'em') + '</h1>' +
+    '<p class="jn-lead">' + (h.lead || '') + '</p><div class="jn-pills"><button type="button" class="jn-pill w" data-open="proto">' + (h.open || 'Open the three flows') + '</button>' +
+    '<button type="button" class="jn-pill g" data-jnwalk>▶ Watch the 30-second walkthrough</button></div>' +
+    '<p class="jn-byline">' + (h.byline || '') + '</p></div><div class="jn-fan" aria-hidden="true">' + fan + (icon ? '<img class="jn-ic" src="' + icon + '" alt="">' : '') + '</div></div></header>';
+
+  /* 2 stat strip */
+  var stats = (J.stats || (M.hero && M.hero.stats) || []).map(function(s){ return '<div class="jn-stat"><b>' + String(s[0]).replace('★', '<i>★</i>') + '</b><span>' + s[1] + '</span></div>'; }).join('');
+
+  /* 3 what this is */
+  var w = J.what || {};
+  var what = '<section class="jn-sec"><div class="jn-wrap jn-two"><div><p class="jn-kick">What this is</p><h2 class="jn-h2">' + halves(w.h2, 'b') + '</h2>' +
+    '<p class="jn-p">' + (w.p || '') + '</p>' +
+    (w.launch ? '<div class="jn-launch"><h4>' + (w.launchTitle || 'Your first launch today') + '</h4><ol>' + w.launch.map(function(x){ return '<li><span>' + x[0] + (x[1] ? ' <b>' + x[1] + '</b>' : '') + '</span></li>'; }).join('') + '</ol></div>' : '') +
+    '</div><div class="jn-notes">' + (w.notes || []).map(function(n, i){ return '<div class="jn-note"><h4><i>' + (i + 1) + '</i>' + n[0] + '</h4><p>' + n[1] + '</p></div>'; }).join('') + '</div></div></section>';
+
+  /* 4 your ads: one tab per promise, the ad itself playing, its frames, then what it promises and where it lands */
+  var A = J.ads || {tabs: []};
+  var ads = '<section class="jn-sec" id="jnAds"><div class="jn-wrap"><p class="jn-kick">' + (A.kick || 'Your ads') + '</p><h2 class="jn-h2">' + halves(A.h2, 'b') + '</h2>' +
+    '<p class="jn-p">' + (A.p || '') + '</p><div class="jn-adtabs" id="jnAdTabs"></div><div class="jn-lib"><div class="jn-media" id="jnMedia"><div class="jn-vid" id="jnAdMedia"></div><div class="jn-strip" id="jnAdStrip"></div></div>' +
+    '<div class="jn-adb" id="jnAdB"></div></div>' + (A.more ? '<p class="jn-more">' + A.more + '</p>' : '') +
+    '<p class="jn-foot-l">' + (A.foot || 'Adapty can pick the first screen of the flow from the campaign the install came from, through the attribution you already run. A new promise gets its own first screen the same day, with no app release.') + '</p></div></section>';
+
+  /* 5 the five ideas */
+  var I = C.ideas || [];
+  function chip(d){ return d.impact ? '<span class="jn-chip">' + d.impact + (d.il ? ' <small>' + d.il + '</small>' : '') + '</span>' : ''; }
+  var list = '<section class="jn-sec"><div class="jn-wrap"><p class="jn-kick">The five ideas</p><h2 class="jn-h2">' + halves(J.ideasH2 || ['Ranked by what we would', 'test first.'], 'b') + '</h2>' +
+    '<p class="jn-p">Tap any of them to open that screen on all three phones.</p><div class="jn-list">' +
+    I.map(function(d, i){ return '<button type="button" class="jn-row" data-jnidea="' + (i + 1) + '"><span>0' + (i + 1) + '</span><div><h3>' + d.title + '</h3><p>' + d.what + '</p><div class="jn-rowf">' + chip(d) + '<span class="jn-see">See it on the phones →</span></div></div></button>'; }).join('') +
+    '</div></div></section>';
+
+  /* 6 potential outcome: a dark card in their world + three do-cards (Day 1 / Week 1 / Week 2 from the ads config) */
+  var O = J.outcome || {}, co = C.outcome || {};
+  var nums = O.nums || [co.cr && [co.cr, O.crl || 'CR to purchase'], co.arpu && [co.arpu, O.arpul || 'ARPU']].filter(Boolean);
+  var dos = O.do || $$('#duo .au-duo-next > div').map(function(x){ return [$('b', x).innerHTML, $('h4', x).innerHTML, $('p', x).innerHTML]; });
+  var outc = '<section class="jn-sec"><div class="jn-wrap"><p class="jn-kick">Potential outcome</p><h2 class="jn-h2">' + halves(O.h2 || ['Five ideas,', 'three versions of one app.'], 'b') + '</h2>' +
+    '<div class="jn-outc"><div class="jn-osh"><div class="jn-og" aria-hidden="true">' + (O.tiles || words.slice(0, 9)).slice(0, 9).map(function(t, k){ return '<i style="--c:' + TC[k % TC.length] + '">' + t + '</i>'; }).join('') + '</div><div class="k">' + (O.k || 'Run together') + '</div><h3>' + (O.t || '') + '</h3>' +
+    '<div class="jn-nums">' + nums.map(function(n){ return '<div><b>' + n[0] + '</b><span>' + n[1] + '</span></div>'; }).join('') + '</div>' +
+    '<p class="cap">' + (O.cap || 'Our estimate if the five run together. They overlap, so they don’t add up; each one is its own A/B test against today’s flow.') + '</p></div>' +
+    '<div class="jn-do">' + dos.map(function(x){ return '<div><small>' + x[0] + '</small><h4>' + x[1] + '</h4><p>' + x[2] + '</p></div>'; }).join('') + '</div></div>' +
+    '<div class="jn-end"><button type="button" class="jn-pill k" data-open="proto">Open the prototype</button><a class="jn-pill c" href="' + demo + '" target="_blank" rel="noopener">Book a demo</a></div></div></section>';
+
+  /* 7 footnote: the disclaimer, then every source as prose */
+  var src = (C.sources || []).map(function(g){ return '<p><b>' + g.group + '.</b> ' + (g.items || []).map(function(it){ return it.dt + ': ' + it.dd; }).join(' · ') + '</p>'; }).join('');
+  var foot = '<div class="jn-wrap"><footer class="jn-footn"><p>' + (C.grounding || '') + '</p><details><summary>Where the numbers come from</summary>' + src + '</details>' +
+    (C.video ? '<p><a href="' + C.video + '" download>Download the 30-second walkthrough (MP4)</a></p>' : '') +
+    '<p>Every screen here can be built and A/B tested in Adapty Flow Builder, with no app release.</p></footer></div>';
+
+  /* Prototype view */
+  var P = J.proto || {}, qr = J.qr || {};
+  var langs = (C.langs || []).length > 1 ? '<div class="jn-seg" id="jnLang" role="group" aria-label="Language">' + C.langs.map(function(l){ return '<button type="button" data-l="' + l.code + '">' + l.name + '</button>'; }).join('') + '</div>' : '';
+  var proto = '<main class="jn-view" id="jnProto"><section class="jn-ph"><div class="jn-wrap"><p class="jn-kick">' + (P.kick || 'Prototype · one first launch per ad') + '</p>' +
+    '<h1 class="jn-h1p">' + halves(P.h1 || ['Three ads.', 'Three first launches.'], 'b') + '</h1><p class="jn-p">' + (P.sub || '') + '</p>' +
+    (langs ? '<div class="jn-tool">' + langs + '</div>' : '') + '</div><div id="jnDuoSlot"></div>' +
+    '<div class="jn-wrap"><div class="jn-qr"><div class="jn-qg" aria-hidden="true">' + tiles(48, false) + '</div><img src="assets/qr-app.png" alt="QR code that opens the prototype on a phone"><div class="t"><h4>' + (qr.t || 'Try it on your phone') + '</h4><p>' + (qr.p || 'Scan to open the prototype full screen, the way a new user would see it. Every screen here can be built in Adapty Flow Builder and tested against today’s.') + '</p></div>' +
+    '<a class="jn-pill g jn-full" href="?app">Open it full screen</a><a class="jn-pill w" href="' + demo + '" target="_blank" rel="noopener">Book a demo</a></div>' +
+    '<p class="jn-protofoot">' + (C.grounding || '') + '</p></div></section></main>';
+
+  root.innerHTML = nav + '<main class="jn-view on" id="jnOver">' + hero + '<section class="jn-stats"><div class="jn-wrap">' + stats + '</div></section>' + what + (A.tabs && A.tabs.length ? ads : '') + list + outc + foot + '</main>' + proto;
+  document.body.insertBefore(root, document.body.firstChild);
+
+  /* the three phones move into the Prototype view; idea cards go under them (inside #duo, so trio.js handles the clicks) */
+  var duo = document.getElementById('duo');
+  if (duo) {
+    $('#jnDuoSlot').appendChild(duo);
+    var kept = J.kept || [];
+    var cards = document.createElement('div'); cards.className = 'jn-icards';
+    cards.innerHTML = I.map(function(d, i){ return '<button type="button" class="jn-icard" data-duoidea="' + (i + 1) + '" data-scr="' + d.screen + '"><small>Idea ' + (i + 1) + ' of ' + I.length + '</small><h4>' + d.title + '</h4><p>' + d.what + '</p>' +
+      '<div class="jn-rowf">' + chip(d) + '<span class="jn-see">See it on the phones →</span></div>' + (kept[i] ? '<div class="kept">' + kept[i] + '</div>' : '') + '</button>'; }).join('');
+    duo.appendChild(cards);
+    (D.flows || []).forEach(function(f){ var p = $('#duo .au-duo-' + f.k + ' .au-duo-pill'); if (p && /apple|search/i.test(f.chan || '')) p.classList.add('asa'); });
+  }
+
+  /* views */
+  function show(v){
+    $$('.jn-view').forEach(function(x){ x.classList.toggle('on', x.id === (v === 'proto' ? 'jnProto' : 'jnOver')); });
+    $$('.jn-tabs button').forEach(function(b){ b.classList.toggle('on', b.dataset.v === v); });
+    var q = new URLSearchParams(location.search); if (v === 'proto') q.set('view', 'proto'); else q.delete('view');
+    history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); scrollTo({top: 0, behavior: 'instant'});
+    if (v === 'proto') setTimeout(function(){ window.dispatchEvent(new Event('scroll')); }, 30);
+  }
+  function ready(cb){
+    var n = 0;
+    (function f(){
+      var frs = $$('#duoStage iframe'), ok = $('#duoSteps button[data-id]') && frs.length && frs.every(function(fr){ return fr.contentWindow && fr.contentWindow.jump; });
+      if (ok || n++ > 80) cb(); else setTimeout(f, 150);
+    })();
+  }
+  function stage(){ var s = $('#duoStage'); if (!s) return; var top = s.getBoundingClientRect().top + scrollY - 150, y0 = scrollY;
+    scrollTo({top: top, behavior: 'smooth'});
+    setTimeout(function(){ if (Math.abs(scrollY - y0) < 4 && Math.abs(top - y0) > 4) scrollTo({top: top, behavior: 'instant'}); }, 900); }
+  root.addEventListener('click', function(e){
+    var t = e.target.closest('[data-v]'); if (t) { show(t.dataset.v); return; }
+    var o = e.target.closest('[data-open]'); if (o) { show(o.dataset.open); return; }
+    var r = e.target.closest('[data-jnidea]'); if (r) { var n = r.dataset.jnidea; show('proto'); ready(function(){ var c = $('.jn-icard[data-duoidea="' + n + '"]'); if (c) c.click(); }); return; }
+    var g = e.target.closest('[data-jngo]'); if (g) { var k = g.dataset.jngo; show('proto'); ready(function(){ var b = document.createElement('button'); b.hidden = true; b.dataset.duogo = k; duo.appendChild(b); b.click(); b.remove(); setTimeout(stage, 450); }); return; }
+    var a = e.target.closest('[data-jnad]'); if (a) { drawAd(+a.dataset.jnad); return; }
+    var l = e.target.closest('#jnLang [data-l]'); if (l && window.setLang) { setLang(l.dataset.l); paintLang(); }
+  });
+  /* idea cards scroll the phones into view */
+  document.addEventListener('click', function(e){ if (e.target.closest('.jn-icard')) setTimeout(stage, 450); });
+  /* the walkthrough: from the hero it opens the Prototype view, waits for the phones, then plays */
+  root.addEventListener('click', function(e){
+    if (!e.target.closest('[data-jnwalk]')) return;
+    show('proto'); ready(function(){ var b = $('#walkBtn'); if (b && !b.classList.contains('on')) b.click(); });
+  });
+  function paintLang(){ var cur = (window.S && S.lang) || (C.langs && C.langs[0].code); $$('#jnLang [data-l]').forEach(function(b){ b.classList.toggle('on', b.dataset.l === cur); }); }
+  paintLang();
+
+  /* the ads card */
+  var tok = 0;
+  function drawAd(i){
+    var T = A.tabs || []; if (!T.length) return; var a = T[i] || T[0], my = ++tok;
+    $('#jnAdTabs').innerHTML = T.map(function(x, k){ return '<button type="button" data-jnad="' + k + '"' + (k === i ? ' class="on"' : '') + '>' + x.tab + (x.n ? ' · ' + x.n + ' ' + (x.unit || (x.n > 1 ? 'ads' : 'ad')) : '') + '</button>'; }).join('');
+    var kind = a.kind || 'video', tag = '<span class="jn-tag' + (kind === 'search' ? ' asa' : kind === 'image' ? ' img' : '') + '">' + (a.chan || 'Meta · running now') + '</span>', m;
+    if (kind === 'video') m = tag + '<video src="' + a.src + '" poster="' + (a.poster || '') + '"' + (a.fit ? ' class="jn-fit"' : '') + ' autoplay muted loop playsinline></video>';
+    else if (kind === 'image') m = tag + '<img src="' + a.src + '" alt="The ad"' + (a.fit ? ' class="jn-fit"' : '') + '>';
+    else if (kind === 'post') m = tag + '<div class="jn-post"><div class="jn-post-h"><img src="' + icon + '" alt=""><div><b>' + (a.page || app) + '</b><small>Sponsored · ◍</small></div><span>···</span></div>' +
+      '<p class="jn-post-t">' + (a.text || '') + '</p><div class="jn-post-m"><img src="' + a.src + '" alt="The ad"></div>' +
+      '<div class="jn-post-l"><div><small>' + (a.domain || '') + '</small><b>' + (a.headline || '') + '</b></div><span>' + (a.cta || 'Learn more') + '</span></div></div>';
+    else { var S2 = J.asa || {};
+      m = tag + '<div class="jn-asa"><div class="jn-asa-bar"><span class="jn-asa-q"></span></div><div class="jn-asa-ad"><img src="' + (S2.icon || icon) + '" alt=""><div><b>' + (S2.name || app) + '</b><small>' + (S2.sub || '') + '</small><em>Ad</em></div><span>Get</span></div>' +
+        '<div class="jn-asa-shots">' + (S2.shots || []).slice(0, 3).map(function(s){ return '<img src="' + s + '" alt="">'; }).join('') + '</div></div>'; }
+    var box = $('#jnAdMedia'), media = $('#jnMedia');
+    box.innerHTML = m; box.classList.toggle('asa', kind === 'search'); media.style.removeProperty('--ar');
+    function fitAr(w, h){ if (w && h && my === tok) media.style.setProperty('--ar', w + '/' + h); }
+    var v = $('#jnAdMedia video');
+    if (v) { v.muted = true; v.addEventListener('loadedmetadata', function(){ fitAr(v.videoWidth, v.videoHeight); }); if (v.readyState >= 1) fitAr(v.videoWidth, v.videoHeight); var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+    var im = kind === 'image' && $('#jnAdMedia > img');
+    if (im && !a.fit) { im.onload = function(){ fitAr(im.naturalWidth, im.naturalHeight); }; if (im.complete) fitAr(im.naturalWidth, im.naturalHeight); }
+    $('#jnAdStrip').innerHTML = (a.frames || []).slice(0, 4).map(function(s){ return '<img src="' + s + '" alt="">'; }).join('');
+    $('#jnAdStrip').style.display = (a.frames || []).length ? '' : 'none';
+    $('#jnAdB').innerHTML = '<div class="hook">' + a.hook + '</div>' + (a.en ? '<div class="en">' + a.en + '</div>' : '') + '<div class="meta">' + (a.meta || '') + '</div>' +
+      '<dl><dt>In the ad</dt><dd>' + (a.inad || '') + '</dd><dt>The promise</dt><dd>' + (a.promise || '') + '</dd><dt>Today it lands on</dt><dd>' + (a.today || '') + '</dd>' +
+      (a.rebuild ? '<dt>In the rebuild</dt><dd>' + a.rebuild + '</dd>' : '') + '</dl>' +
+      '<div class="go">' + (a.flow ? '<button type="button" class="jn-pill k" data-jngo="' + a.flow + '">Open its flow</button>' : '<span class="jn-foot-l">' + (a.uses || '') + '</span>') + '</div>';
+    if (kind === 'search') typeTerm(a.term || a.tab.replace(/[“”"]/g, ''), my);
+  }
+  function typeTerm(term, my){
+    var q = $('#jnAdMedia .jn-asa-q'), box = $('#jnAdMedia .jn-asa'); if (!q) return;
+    var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (RM) { q.textContent = term; box.classList.add('show'); return; }
+    var i = 0;
+    (function f(){
+      if (my !== tok) return;
+      if (i <= term.length) { q.textContent = term.slice(0, i++); setTimeout(f, 95); return; }
+      setTimeout(function(){ if (my !== tok) return; box.classList.add('show');
+        setTimeout(function(){ if (my !== tok) return; box.classList.remove('show'); i = 0; q.textContent = ''; setTimeout(f, 600); }, 4200); }, 350);
+    })();
+  }
+  drawAd(0);
+  if (/[?&]view=proto\b/.test(Q) || /[?&]step=\w/.test(Q)) show('proto');
+})();
+/* JUNO:END */
+</script>
+<script>
 /* MOTION:START — hero words + icon, scroll reveal, count-up, and the live walkthrough in the ad phones. Config: #motionData. */
 (function run(){
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', run); return; }
@@ -2435,5 +2907,6 @@ function tourInit(){
 /* MOTION:END */
 </script>
 <script type="application/json" id="motionData">{"hero": {"words": ["Watching my baby grow in 3D is priceless", "Clementine", "13 weeks", "Blueberry", "If you're pregnant right now stop scrolling", "Strawberry", "Track your baby in 3D", "My pregnancy calendar", "Week by week", "Checklists for each trimester"], "icon": "assets/brand/appstore-icon.jpg", "stats": [["★ 4.8", "from 27K ratings on the US App Store"], ["25", "live Meta ads for the app, in three promises"], ["3", "versions of your onboarding, one per ad"], ["1", "paywall every install meets today"]]}, "walk": {"end": "That’s the three versions, one per ad. Tap any phone, or a recommendation under it.", "captions": {"ad": "<b>Three Meta ads, three new moms.</b> 3D baby, size every week, the calendar.", "weeks": "<b>How far along?</b> Each ad picks a different week to start from.", "paywall": "<b>Three paywalls.</b> Her baby on top · priced in her weeks · your timeline.", "offer": "<b>On close:</b> $9.99 monthly, once, for every version.", "value": "<b>First value, before any account.</b> Her 3D baby · her weeks · her calendar.", "ask": "<b>One question, asked after the payoff,</b> about what this ad promised.", "ready": "<b>Her program</b> names what she picked.", "remind": "<b>Notifications:</b> the trial reminder, or reminders for her appointments."}}, "heroWalk": "▶ Watch it play in the phones"}</script>
+<script type="application/json" id="junoData">{"month": "November 2026", "icon": "assets/brand/appstore-icon.jpg", "demo": "https://adapty.io/schedule-demo/", "hero": {"h1": ["Three videos, three promises.", "One sign-up, one paywall."], "lead": "One mom taps “Watching my baby grow in 3D”, another “13 weeks: my baby is the size of a clementine”, another “If you’re pregnant right now stop scrolling”. All three meet the same 13 questions and one paywall. Here is the app opening on what each video promised, in your design, at your prices.", "byline": "Built from your US and French App Store listings and in-app purchases, your iOS onboarding as recorded by ScreensDesign in August 2026, and the 25 active app ads in the Meta Ad Library.", "open": "Open the three versions", "tiles": ["#ed5180", "#f684a8", "#ff716b", "#7d8aab", "#e42d59", "#ec627b", "#3e4a57"], "words": ["Watching my baby grow in 3D", "13 weeks: a clementine", "Blueberry", "Strawberry", "My pregnancy calendar", "Week by week", "Checklists for each trimester", "Track your baby in 3D", "Watermelon size"]}, "stats": [["★ 4.8", "from 27,490 ratings on the US App Store"], ["25", "active app ads in the Meta Ad Library on 11 Nov 2026"], ["13", "questions after name and sign-up, before the paywall today"], ["1", "onboarding and paywall for every install, whichever video she saw"]], "what": {"h2": ["We read WeMoms on the App Store and on Meta,", "then rebuilt the first screens around each video."], "p": "Adapty powers subscriptions for 30,000+ apps, so we see what moves purchases across the market. Nearly 500 apps build their paywalls and onboarding in Adapty Flow Builder, and millions of dollars in subscription revenue pass through it every month. For WeMoms we looked at the gap between the video a mom taps and the first screens she meets.", "launchTitle": "A mom’s first launch today", "launch": [["Taps one of your Meta videos: “Install now”.", "Kept."], ["Opens on the notification prompt over “What's your name?”, then “What brings you here?”.", "Here each version opens on her week and what her video promised."], ["Meets “Your baby is the size of Chia seed” with “Sign up to create your custom program”, then 13 questions.", "Kept, with the sign-up after the paywall."], ["Reaches one paywall for everyone: “Get on track for your peaceful pregnancy journey”, “SAVE -61%” against $149.99.", "Kept: your plans and your timeline, with her own reason on top."]], "notes": [["Your design, not ours", "Your #f6f1ee ground, #ed5180 pink and the #f04267 → #f684a8 button, Nunito from wemoms.com, your 3D baby, your Today dashboard, your calendar and your bell. Only the order and the first screens change."], ["Your prices, as published", "$59.99 a year, $6.99 a week and $9.99 a month, the plans in your US App Store list (69,99 €, 6,99 € and 9,99 € in French). $1.15 a week and 84% are computed from them. We left out $149.99, the struck-through price that isn’t in either list. No invented discount, no timer."], ["You may have tested some of this", "We cannot see your experiment history. Tell us what you already ran and we will go deeper on the rest."]]}, "ads": {"kick": "Your ads on Meta", "h2": ["25 app ads running today, three promises.", "Every one lands on the same onboarding."], "p": "The Meta Ad Library shows 25 active WeMoms app ads on 11 November, from the pages “Mom-to-be 2025: I'm Pregnant” and “Mom-to-be 2022”. All share one text, “Best Pregnancy App 2026 👑”, and an Install now link to the App Store; only the videos differ. We sorted them by what each video shows, and each promise gets its own version of the app in the prototype.", "tabs": [{"tab": "“Watching my baby grow in 3D”", "n": 13, "kind": "video", "chan": "Meta · video ad · running now", "src": "assets/ads/ad-a.mp4", "hook": "“IT'S CRAZY. Watching my baby grow in 3D is priceless. I am completely addicted to this app. 😍”", "meta": "Meta · video ad · 10 s · this version started 3 Nov 2026 · 13 ads with this promise since 17 Mar · Meta Ad Library", "inad": "Tweet-style cards over the 3D baby model, and moms in the street holding the 3D baby.", "promise": "See my baby, in 3D, as she grows.", "today": "The notification prompt, “What's your name?”, then 10 steps to the 3D baby, behind a sign-up.", "rebuild": "Version A starts at 10 weeks and opens on her 3D baby before any account: a strawberry, 0.25 oz · 1.61 in. Then “What do you expect from WeMoms?” with growth ticked, and a paywall with her 3D baby at her week on top.", "flow": "a", "poster": "assets/ads/ad-a-poster.jpg", "frames": ["assets/ads/ad-a-1.jpg", "assets/ads/ad-a-2.jpg", "assets/ads/ad-a-3.jpg", "assets/ads/ad-a-4.jpg"]}, {"tab": "“The size of a clementine”", "n": 9, "kind": "video", "chan": "Meta · video ad · running now", "src": "assets/ads/ad-b.mp4", "hook": "“13 weeks: my baby is the size of a clementine 🍊 wemoms says it ends at watermelon size”", "meta": "Meta · video ad · 8 s · this version started 9 Nov 2026 · 9 ads with this promise since 16 Oct · Meta Ad Library", "inad": "Moms filming themselves: “pov: he knows the baby’s size every week better than i do”, “learning something new about my baby every week on wemoms”.", "promise": "Know what my baby is like this week.", "today": "The same notification prompt, name, sign-up and paywall.", "rebuild": "Version B starts at 13 weeks on your Today dashboard: “Baby’s size: Clementine” beside her sizes at 6 · 10 · 13 · 40. It asks what she wants to know each week and prices the year in her weeks: “27 weeks × $6.99 = $188.73” against $59.99.", "flow": "b", "poster": "assets/ads/ad-b-poster.jpg", "frames": ["assets/ads/ad-b-1.jpg", "assets/ads/ad-b-2.jpg", "assets/ads/ad-b-3.jpg", "assets/ads/ad-b-4.jpg"]}, {"tab": "“My pregnancy calendar”", "n": 3, "kind": "video", "chan": "Meta · video ad · running now", "src": "assets/ads/ad-c.mp4", "poster": "assets/ads/ad-c-poster.jpg", "frames": ["assets/ads/ad-c-1.jpg", "assets/ads/ad-c-2.jpg", "assets/ads/ad-c-3.jpg", "assets/ads/ad-c-4.jpg"], "hook": "“If you’re pregnant right now stop scrolling… you scroll down and you can see my pregnancy calendar”", "meta": "Meta · video ad · 21 s · 2 ads with this video since 3 Nov 2026, plus a doctor’s video since 2 Jul · Meta Ad Library", "inad": "A creator in scrubs shows the app on her phone: “you see the beautiful 3D baby”, then the calendar, “everything that you need to get done”, “no more stressing”.", "promise": "Know what’s coming, week by week.", "today": "The same notification prompt, “What's your name?”, sign-up, 13 questions and paywall as the other two.", "rebuild": "Version C starts at 6 weeks and opens on your calendar with “Schedule healthcare visit” and “1st ultrasound” to tick, asks what she wants to stay on top of, sets reminders for her dates and the trial end, and shows SAVE 84% under your Today · Day 2 · Day 3 timeline.", "flow": "c"}], "more": "Also running: a doctor’s video since 2 Jul on the page “Mom-to-be 2022”, counted with the calendar and opening version C. The WeMoms page itself runs partner posts (E.Leclerc, Naturnes, Dodie), not app ads. Counts are ads, not spend. We found no Apple Ads for WeMoms in the US between 11 October and 11 November 2026."}, "outcome": {"h2": ["Five ideas,", "one app that opens on the video she tapped."], "k": "Run together", "t": "Three videos, three first screens, one paywall that names her reason", "nums": [["+15%", "CR to purchase"], ["+15%", "ARPU"]]}, "proto": {"kick": "Prototype · one version per video", "h1": ["Three Meta videos.", "Three first launches."], "sub": "One install from each promise: the 3D baby, her size every week, the pregnancy calendar. Same app, same prices. Tap the steps, or tap inside any phone."}, "kept": ["Kept: your 3D baby, “View in 3D” and your sign-up, now after the paywall.", "Kept: your program screen, now named for what she picked.", "Kept: your bell and “We'll send you a reminder before your free trial ends”.", "Kept: $59.99 a year and $6.99 a week, your own App Store prices.", "Kept: “WeMoms Premium – Monthly” at $9.99, a plan you already sell."], "_tiles": ["#d07690", "#d593a7", "#da8984", "#9097a8", "#cb627a", "#cf808d", "#6c7278"]}</script>
 </body>
 </html>
