@@ -167,6 +167,17 @@ html.au-embed .phone,html.au-embed .phone *{visibility:visible}
 html.au-embed .phone{position:fixed;top:0;left:0;margin:0;z-index:99;box-shadow:none;max-width:none}
 html.appmode #ads,html.tourmode #ads{display:none!important}
 /* DUO:END */
+/* per-ad recommendations under each phone */
+.au-duo-recs{margin-top:10px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.au-rec-v{margin:0 0 2px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--st-ink2)}
+.au-rec{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;width:100%;text-align:left;background:var(--st-ground);border:1px solid var(--st-hair);border-radius:14px;padding:11px 12px;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,background .2s}
+.au-rec:hover,.au-rec.on{border-color:var(--st-accent);background:var(--st-card)}
+.au-rec>i{grid-row:span 2;font-style:normal;font-size:11.5px;font-weight:700;color:#fff;background:var(--st-accent);border-radius:999px;padding:3px 7px;align-self:start}
+.au-rec>span{display:flex;flex-direction:column;gap:3px}
+.au-rec b{font-size:14px;line-height:1.3}
+.au-rec em{font-style:normal;font-size:13px;line-height:1.4;color:var(--st-ink2)}
+.au-rec mark{grid-column:2;justify-self:start;background:var(--st-mark);padding:1px 6px;border-radius:4px;font-size:13px;font-weight:700;color:inherit}
+.au-rec mark small{font-weight:500;margin-left:5px;color:var(--st-ink2)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
@@ -544,7 +555,114 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
 .wm-ofc small{font:600 12.5px var(--b-font);color:var(--b-ink2)}
 .wm-ofc strong{display:flex;flex-direction:column;align-items:flex-end;font:800 22px var(--b-font)}
 .wm-ofc em{font:500 12px var(--b-font);font-style:normal;color:var(--b-ink2)}
+/* version B: her weeks (their Today dashboard) */
+.wm-sb{gap:10px;padding-top:56px}
+.wm-today{display:flex;align-items:center;gap:10px}
+.wm-today b{flex:1;text-align:center;font:800 17px var(--b-font)}
+.wm-today i,.wm-calh i{font-style:normal;color:var(--b-ink2);font-size:18px}
+.wm-av2{width:32px;height:32px;border-radius:50%;background:var(--b-tint);color:var(--b-primary);display:grid;place-items:center;font:800 14px var(--b-font)}
+.wm-tabs{display:flex;justify-content:space-between;gap:6px}
+.wm-tabs>span{flex:1;text-align:center;border-radius:999px;padding:7px 4px;font:700 13px var(--b-font);color:var(--b-ink2);background:var(--b-surface)}
+.wm-tabs>span.on{background:var(--b-tint);color:var(--b-primary);border:1.5px solid var(--b-primary)}
+.wm-size{position:relative;height:250px;flex:none;border-radius:var(--b-radius);overflow:hidden;background:var(--b-tint)}
+.wm-size>div{position:absolute;left:14px;top:12px;z-index:1;display:flex;flex-direction:column}
+.wm-size>div{background:var(--b-surface);border-radius:12px;padding:6px 11px}
+.wm-size small{font:700 11.5px var(--b-font);color:var(--b-ink2)}
+.wm-size .wm-fr{font:800 18px var(--b-font);color:var(--b-primary)}
+.wm-size img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.wm-size .wm-v3d{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);background:var(--b-surface);border-radius:999px;padding:7px 14px;font:800 13px var(--b-font);white-space:nowrap}
+.wm-strip{display:flex;flex-direction:column;gap:8px}
+.wm-strip .wm-k{margin:0}
+.wm-wks,.wm-ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.wm-wks div,.wm-ladder div{display:flex;flex-direction:column;align-items:center;gap:1px;border-radius:10px;padding:7px 2px;background:var(--b-bg);text-align:center}
+.wm-wks b,.wm-ladder b{font:800 16px var(--b-font)}
+.wm-wks span,.wm-ladder span{font:600 11px/1.2 var(--b-font);color:var(--b-ink2)}
+.wm-wks div.on,.wm-ladder div.on{background:var(--b-primary);color:var(--b-primary-ink)}
+.wm-wks div.on span,.wm-ladder div.on span{color:var(--b-primary-ink)}
+.wm-ladder div{background:var(--b-surface)}
+/* version C: her calendar (their "Your calendar") */
+.wm-cb{gap:11px}
+.wm-calh{display:flex;align-items:center;gap:10px}
+.wm-calh b{flex:1;text-align:center;font:800 17px var(--b-font)}
+.wm-duec{display:flex;flex-direction:column;gap:7px}
+.wm-duec p{margin:0;display:flex;align-items:center;gap:5px;font:600 13.5px var(--b-font)}
+.wm-edit{margin-left:auto;color:var(--b-primary);font:700 13px var(--b-font)}
+.wm-bar{height:6px;border-radius:6px;background:var(--b-tint);overflow:hidden}.wm-bar i{display:block;height:100%;background:var(--b-grad)}
+.wm-duec small{align-self:flex-end;font:700 11.5px var(--b-font);color:var(--b-ink2)}
+.wm-ctabs{display:flex;gap:6px;white-space:nowrap;overflow:hidden}
+.wm-ctabs>span{border-radius:999px;padding:6px 11px;font:700 12.5px var(--b-font);background:var(--b-surface);color:var(--b-ink2)}
+.wm-ctabs>span.on{background:var(--b-tint);color:var(--b-primary)}
+.wm-todo{display:flex;flex-direction:column;gap:9px}
+.wm-todo button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--b-surface);border:0;border-radius:14px;padding:13px;cursor:pointer;color:var(--b-ink);font-family:var(--b-font)}
+.wm-todo button>i{flex:none;width:38px;height:38px;border-radius:50%;background:var(--b-tint);display:grid;place-items:center;font-style:normal;font-size:17px}
+.wm-todo button>span{flex:1;display:flex;flex-direction:column;gap:2px}
+.wm-todo b{font:800 14.5px var(--b-font)}
+.wm-todo small{font:600 12px var(--b-font);color:var(--b-ink2)}
+.wm-todo em{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--b-line);display:grid;place-items:center;font:900 12px var(--b-font);font-style:normal;color:transparent}
+.wm-todo button.on{background:var(--b-grad);color:var(--b-primary-ink)}
+.wm-todo button.on small{color:var(--b-primary-ink)}
+.wm-todo button.on>i{background:rgba(255,255,255,.3)}
+.wm-todo button.on em{background:var(--b-ink);border-color:var(--b-ink);color:var(--b-primary-ink)}
+.wm-win{margin:0;text-align:center;font:800 14px var(--b-font);color:var(--b-primary)}
+/* paywalls by version */
+.wm-pa{padding-top:58px;gap:9px}
+.wm-pwh{position:relative;height:180px;flex:none;border-radius:var(--b-radius);overflow:hidden;background:var(--b-tint)}
+.wm-pwh img{width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+.wm-wkb,.wm-szb{position:absolute;background:var(--b-surface);border-radius:999px;padding:5px 11px;font:800 12.5px var(--b-font);white-space:nowrap}
+.wm-wkb{left:10px;top:10px;color:var(--b-primary)}
+.wm-szb{right:10px;bottom:10px}
+.wm-proof{margin:0;text-align:center;font:700 12.5px var(--b-font);color:var(--b-ink2)}
+.wm-proof::first-letter{color:var(--b-primary)}
+.wm-math{display:flex;flex-direction:column;gap:3px;padding:12px}
+.wm-math p{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:8px;font:700 13px var(--b-font)}
+.wm-math p b{font:800 16px var(--b-font);white-space:nowrap}
+.wm-math small{font:600 11.5px var(--b-font);color:var(--b-ink2)}
+.wm-math .wm-mo{margin-top:5px;padding-top:7px;border-top:1px solid var(--b-line);color:var(--b-primary)}
+.wm-calm{margin:0;text-align:center;font:700 12.5px var(--b-font);color:var(--b-primary)}
 /* SCREENS:END */
+/* MOTION:START — the niconico-style layer (bterzic123.github.io/niconico-flow-rebuild): a dark hero in the app's
+   own colour with drifting words and a floating phone fan, scroll reveals, count-up numbers, and a live walkthrough
+   inside the three ad phones (a finger glides to each button, presses it, the phones move on). Respects reduced motion. */
+.au-top-hero.au-mx{background:var(--st-accent);color:#fff;margin:0 12px;border-radius:0 0 28px 28px;padding-bottom:0;isolation:isolate}
+.au-top-hero.au-mx::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 95%);mask-image:linear-gradient(180deg,#000 30%,transparent 95%)}
+.au-top-hero.au-mx .au-display,.au-top-hero.au-mx .au-lede,.au-top-hero.au-mx .au-eyebrow,.au-top-hero.au-mx .au-byline{color:#fff}
+.au-top-hero.au-mx .au-lede span,.au-top-hero.au-mx .au-byline{color:rgba(255,255,255,.72)}
+.au-top-hero.au-mx .au-eyebrow i{background:var(--st-hi)}
+.au-top-hero.au-mx .au-btn{background:#fff;color:var(--st-accent)}
+.au-top-hero.au-mx .au-lnk{color:#fff}
+.au-mx-words{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;-webkit-mask-image:radial-gradient(ellipse 38% 34% at 50% 30%,transparent 45%,#000 100%);mask-image:radial-gradient(ellipse 38% 34% at 50% 30%,transparent 45%,#000 100%)}
+.au-mx-words span{position:absolute;left:100%;white-space:nowrap;font-weight:700;color:rgba(255,255,255,.11);animation:au-fly linear infinite}
+@keyframes au-fly{to{transform:translateX(calc(-100vw - 120%))}}
+.au-mx .au-hp img{animation:au-float 6s ease-in-out infinite}
+.au-mx .au-hp.au-c img{animation-delay:-2s}.au-mx .au-hp.au-r img{animation-delay:-4s}
+@keyframes au-float{50%{transform:translateY(-10px)}}
+.au-mx-icon{position:absolute;right:clamp(16px,6vw,90px);top:clamp(70px,12vw,130px);width:clamp(54px,6vw,84px);border-radius:22%;box-shadow:0 10px 0 rgba(0,0,0,.18),0 18px 40px rgba(0,0,0,.25);animation:au-bob 1.6s ease-in-out infinite;z-index:1}
+@keyframes au-bob{50%{transform:translateY(-9px) rotate(-5deg)}}
+.au-mx-stats{display:grid;grid-template-columns:repeat(4,1fr);margin:12px 12px 0;border-radius:20px;background:var(--st-ground)}
+.au-mx-stats div{padding:26px 16px;text-align:center;border-left:1px solid var(--st-hair)}
+.au-mx-stats div:first-child{border-left:0}
+.au-mx-stats b{display:block;font-size:clamp(28px,3vw,38px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--st-ink)}
+.au-mx-stats span{display:block;font-size:14px;color:var(--st-ink2);margin-top:6px;line-height:1.35}
+@media (max-width:720px){.au-mx-stats{grid-template-columns:1fr 1fr}.au-mx-stats div:nth-child(3){border-left:0}.au-mx-stats div:nth-child(n+3){border-top:1px solid var(--st-hair)}.au-mx-icon{display:none}}
+/* scroll reveal */
+/* uses the separate `translate` property, never `transform`, so it can't undo a component's own transform (the trio stage is centred with one) */
+.au-rv{opacity:0;translate:0 22px;transition:opacity .7s cubic-bezier(.2,.7,.2,1),translate .7s cubic-bezier(.2,.7,.2,1)}
+.au-rv.au-in{opacity:1;translate:none}
+/* live walkthrough in the three phones */
+.au-walk{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 6px;position:sticky;top:64px;z-index:40;padding:10px 0}
+.au-walk.on{background:var(--st-card);padding:12px 16px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.au-walk button{border:0;border-radius:999px;background:var(--st-accent);color:#fff;font:600 15px/1 var(--st-font);padding:12px 18px;cursor:pointer}
+.au-walk button.on{background:var(--st-ink)}
+.au-walkbar{flex:1;min-width:240px;display:none;flex-direction:column;gap:7px}
+.au-walkbar.on{display:flex}
+.au-walkbar span{font-size:15px;line-height:1.4;color:var(--st-ink)}
+.au-walkbar i{display:block;height:4px;border-radius:4px;background:var(--st-hair);overflow:hidden}
+.au-walkbar i b{display:block;height:100%;width:0;background:var(--st-accent);transition:width .35s linear}
+.au-finger{position:absolute;z-index:30;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 0 2px rgba(0,0,0,.35),0 6px 18px rgba(0,0,0,.35);pointer-events:none;opacity:0;transition:left .38s cubic-bezier(.2,.7,.2,1),top .38s cubic-bezier(.2,.7,.2,1),transform .12s,opacity .2s}
+.au-finger.on{opacity:1}.au-finger.press{transform:scale(.7)}
+@media (prefers-reduced-motion:reduce){.au-mx-words span,.au-mx .au-hp img,.au-mx-icon{animation:none}.au-rv{opacity:1;translate:none;transition:none}.au-finger{transition:opacity .2s}}
+html.shot .au-rv,html.phoneonly .au-rv{opacity:1;translate:none}
+/* MOTION:END */
 </style>
 </head>
 <body>
@@ -573,6 +691,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <div class="au-ctas">
       <a class="au-btn" href="#ideas">See the five ideas</a>
       <a class="au-lnk" href="#prototype">Open the prototype</a>
+      <a class="au-lnk" href="#ads" data-walk>▶ Watch it play in the phones</a>
       <button type="button" class="au-lnk au-play" id="heroVideo" hidden>Watch the 30-second walkthrough</button>
     </div>
   </div>
@@ -641,28 +760,28 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <div class="au-split">
       <div>
         <p class="au-kicker">Your ads × your flow</p>
-        <h2 class="au-h2">Your ads promise a 3D baby, her size every week and a calendar of what to do. <span>Every install meets name, sign-up and the same paywall.</span></h2>
+        <h2 class="au-h2">Your ads promise a 3D baby, her size every week and a calendar of what to do. <span>So we built three versions, one per promise.</span></h2>
       </div>
       <div>
-        <p>The WeMoms ads live in the Meta Ad Library come from the page <b>“Mom-to-be 2025: I'm Pregnant”</b>: 25 active, all with one text, <b>“Best Pregnancy App 2026 👑 · Track your baby in 3D · Checklists for each trimester”</b>, and an Install now link to the App Store. The videos are what differ: most show the 3D baby, nine show moms reacting to their baby’s size this week, and three show the pregnancy calendar or a doctor. Every install still opens on the notification prompt, “What's your name?” and “What brings you here?”, whichever video she saw.</p><p>Flow Builder can open a different flow by the campaign an install came from. The three phones below skip the question the ad already answered and open on what the video promised.</p>
+        <p>The WeMoms ads live in the Meta Ad Library come from the page <b>“Mom-to-be 2025: I'm Pregnant”</b>: 25 active, all with one text, <b>“Best Pregnancy App 2026 👑 · Track your baby in 3D · Checklists for each trimester”</b>, and an Install now link to the App Store. The videos are what differ: most show the 3D baby, nine show moms reacting to their baby’s size this week, and three show the pregnancy calendar or a doctor. Every install still opens on the notification prompt, “What's your name?” and “What brings you here?”, whichever video she saw.</p><p>Flow Builder can open a different flow by the campaign an install came from. The three phones below are three versions of your onboarding: each skips what its ad answered, opens on what its video promised, asks its own question and ends on its own paywall, with three recommendations under each.</p>
       </div>
     </div>
     <div class="au-duo-stats"><div><b>25</b><span>live WeMoms app ads in the Meta Ad Library, 11 Nov 2026</span></div><div><b>3</b><span>promises in the videos: the 3D baby, her size every week, and the calendar</span></div><div><b>1</b><span>onboarding every install meets today, whichever video she saw</span></div></div>
     <div class="au-pf"><div class="au-pf-h"><h3>Your ads, sorted by promise</h3><p>Share of the 25 active ads, pages “Mom-to-be 2025” and “Mom-to-be 2022”, 11 Nov 2026</p></div><div class="au-pf-bar"><i style="flex:13;background:var(--st-accent)" title="Watch your baby grow in 3D"></i><i style="flex:9;background:var(--st-hi)" title="Her size, every week"></i><i style="flex:3;background:var(--st-ink2)" title="Calendar and experts"></i></div><div class="au-pf-leg"><span><i style="background:var(--st-accent)"></i>Watch your baby grow in 3D · 13</span><span><i style="background:var(--st-hi)"></i>Her size, every week · 9</span><span><i style="background:var(--st-ink2)"></i>Calendar and experts · 3</span></div><div class="au-pf-grid"><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/p9.jpg" alt="A frame from the ad"><span class="au-pf-tag">Most ads · running now</span><span class="au-pf-n">13 ads</span></div><div class="au-pf-bd"><div class="au-pf-hook">“IT'S CRAZY. Watching my baby grow in 3D is priceless. I am completely addicted to this app. 😍”</div><div class="au-pf-meta">13 ads since 17 Mar 2026, newest 3 Nov · App Store</div><dl><dt>In the ad</dt><dd>Tweet-style cards over the 3D baby model, and moms in the street holding the 3D baby.</dd><dt>The promise</dt><dd>See my baby, in 3D, as she grows.</dd><dt>Today it lands on</dt><dd>Notification prompt, “What's your name?”, then 10 steps to the 3D baby, behind a sign-up.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="a">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/p23.jpg" alt="A frame from the ad"><span class="au-pf-tag">Newest · 9 Nov</span><span class="au-pf-n">9 ads</span></div><div class="au-pf-bd"><div class="au-pf-hook">“13 weeks: my baby is the size of a clementine 🍊 wemoms says it ends at watermelon size”</div><div class="au-pf-meta">9 ads since 16 Oct 2026, newest 9 Nov · App Store</div><dl><dt>In the ad</dt><dd>UGC moms: “pov: he knows the baby’s size every week better than i do”, “learning something new about my baby every week on wemoms”.</dd><dt>The promise</dt><dd>Know what my baby is like this week.</dd><dt>Today it lands on</dt><dd>The same name, sign-up and paywall.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="b">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/p3.jpg" alt="A frame from the ad"><span class="au-pf-tag">Since Jul · 2 new on 3 Nov</span><span class="au-pf-n">3 ads</span></div><div class="au-pf-bd"><div class="au-pf-hook">“If you’re pregnant right now stop scrolling… you scroll down and you can see my pregnancy calendar”</div><div class="au-pf-meta">2 ads with this video since 3 Nov 2026, plus a doctor’s video since 2 Jul (page “Mom-to-be 2022”) · App Store</div><dl><dt>In the ad</dt><dd>A creator in scrubs scrolls the WeMoms calendar: “you can see everything that you need to get done, when you need to get done”, “no more stressing”, then the 3D baby.</dd><dt>The promise</dt><dd>Know what’s coming, week by week.</dd><dt>Today it lands on</dt><dd>The same flow.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="c">Open its flow ›</button></div></div></article></div><p class="au-pf-note">We read every active ad and grouped them by what the video shows; the text is the same on all 25, and counts are ads, not spend. Each promise gets a phone of its own below. The WeMoms page itself runs partner posts (E.Leclerc, Naturnes, Dodie), not app ads.</p></div>
-    <div class="au-duo-h"><h3>Three ads, three flows</h3><p>Left to right: a mom who saw the 3D baby video, one who saw “13 weeks: my baby is the size of a clementine”, and one who saw the pregnancy-calendar video. Tap <b>Today’s paywall</b> to see where all three land now, then tap through the proposal, or jump straight to an idea.</p></div>
+    <div class="au-duo-h"><h3>Three ads, three versions</h3><p>Left to right: version A for the 3D baby video, B for “13 weeks: my baby is the size of a clementine”, C for the pregnancy-calendar video. Each step opens every phone on its own version of that step. Tap a recommendation under a phone to see it on that phone.</p></div>
     <div class="au-duo-steps" id="duoSteps" aria-label="Steps, in every phone"></div>
     <div class="au-duo-ideas" id="duoIdeas" aria-label="The five ideas, in every phone"></div>
     <p class="au-duo-stepcap" id="duoStepCap"></p>
     <div class="au-duo-tog" role="group" aria-label="Which ad"><button type="button" data-duoone="a" class=on>Ad 1 · 3D baby</button><button type="button" data-duoone="b">Ad 2 · Size every week</button><button type="button" data-duoone="c">Ad 3 · Calendar</button></div>
     <div class="au-duo au-n3" id="duoStage" data-one="a">
-      <div class="au-duo-ph au-duo-a"><p class="au-duo-pill"><b>Meta ad</b><span>Watching my baby grow in 3D is priceless…</span></p><div class="au-duo-fr" id="duoFra"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapa"></p></div><div class="au-duo-ph au-duo-b"><p class="au-duo-pill"><b>Meta ad</b><span>13 weeks: my baby is the size of a clementine…</span></p><div class="au-duo-fr" id="duoFrb"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapb"></p></div><div class="au-duo-ph au-duo-c"><p class="au-duo-pill"><b>Meta ad</b><span>If you’re pregnant right now stop scrolling… my pregnancy calendar</span></p><div class="au-duo-fr" id="duoFrc"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapc"></p></div>
+      <div class="au-duo-ph au-duo-a"><p class="au-duo-pill"><b>Meta ad</b><span>Watching my baby grow in 3D is priceless…</span></p><div class="au-duo-fr" id="duoFra"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapa"></p><div class="au-duo-recs" id="duoReca" aria-label="Recommendations for this ad"></div></div><div class="au-duo-ph au-duo-b"><p class="au-duo-pill"><b>Meta ad</b><span>13 weeks: my baby is the size of a clementine…</span></p><div class="au-duo-fr" id="duoFrb"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapb"></p><div class="au-duo-recs" id="duoRecb" aria-label="Recommendations for this ad"></div></div><div class="au-duo-ph au-duo-c"><p class="au-duo-pill"><b>Meta ad</b><span>If you’re pregnant right now stop scrolling… my pregnancy calendar</span></p><div class="au-duo-fr" id="duoFrc"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapc"></p><div class="au-duo-recs" id="duoRecc" aria-label="Recommendations for this ad"></div></div>
     </div>
     <p class="au-duo-hint">Tap through any phone and the others follow. A dot marks the screens that differ by ad.</p>
     <table class="au-duo-tbl" id="duoTbl"></table>
-    <div class="au-duo-next"><div><b>Day 1</b><h4>Pass the Meta campaign into Adapty</h4><p>After a one-time SDK setup, the campaign each install came from arrives as a user attribute and picks the flow at first open. No app release.</p></div><div><b>Week 1</b><h4>One flow per promise</h4><p>The 3D-baby, weekly-size and calendar videos each open on their own first screens; the doctor’s video shares the calendar flow.</p></div><div><b>Week 2</b><h4>Judge each video on what it earns</h4><p>Each flow against today’s, measured on trials, paid subscriptions and what each install from that video earns.</p></div></div>
-    <p class="au-adn">All 25 ads are live in the Meta Ad Library with the text above; the videos are grouped by what they show. We found no Apple Ads for WeMoms in the US between 11 October and 11 November 2026. This layer carries no range: only a test per ad can give one.</p>
+    <div class="au-duo-next"><div><b>Day 1</b><h4>Pass the Meta campaign into Adapty</h4><p>After a one-time SDK setup, the campaign each install came from arrives as a user attribute and picks the flow at first open. No app release.</p></div><div><b>Week 1</b><h4>Three versions, one per promise</h4><p>The 3D-baby, weekly-size and calendar videos each open their own version; the doctor’s video shares the calendar one.</p></div><div><b>Week 2</b><h4>Judge each video on what it earns</h4><p>Each flow against today’s, measured on trials, paid subscriptions and what each install from that video earns.</p></div></div>
+    <p class="au-adn">All 25 ads are live in the Meta Ad Library with the text above; the videos are grouped by what they show. We found no Apple Ads for WeMoms in the US between 11 October and 11 November 2026. The ranges under each phone are Adapty’s expected effect for that change; which version wins for which ad only a test per ad can say.</p>
   </div>
-  <script type="application/json" id="duoData">{"flows": [{"k": "a", "ad": "a", "label": "Ad 1 · 3D baby", "pill": "Watching my baby grow in 3D is priceless…"}, {"k": "b", "ad": "b", "label": "Ad 2 · Size every week", "pill": "13 weeks: my baby is the size of a clementine…"}, {"k": "c", "ad": "c", "label": "Ad 3 · Calendar", "pill": "If you’re pregnant right now stop scrolling… my pregnancy calendar"}], "rows": [{"id": "ad", "h": "Your ad", "a": "The 3D baby video: “Watching my baby grow in 3D is priceless.”", "b": "The weekly video: “13 weeks: my baby is the size of a clementine 🍊”", "c": "The calendar video: “you scroll down and you can see my pregnancy calendar… no more stressing.”"}, {"id": "weeks", "h": "Weeks", "a": "“👶🏽 Track your baby in 3D, week by week”, 10 weeks picked; “What brings you here?” skipped.", "b": "“🍊 Your baby’s size, every week”, 13 weeks picked; “What brings you here?” skipped.", "c": "“✅ What to get done, week by week”, 6 weeks picked; “What brings you here?” skipped."}, {"id": "baby", "h": "Your baby", "a": "The 3D baby at 10 weeks: the size of a strawberry, 0.25 oz · 1.61 in.", "b": "The 3D baby at 13 weeks: the size of a clementine, as in the ad.", "c": "The 3D baby at 6 weeks: the size of a blueberry, from your own dashboard."}, {"id": "expect", "h": "Expectations", "a": "“Track my baby's growth” already ticked.", "b": "“Track my baby's growth” already ticked.", "c": "“Feel calm during my pregnancy” already ticked: the ad promised “no more stressing”."}], "tableTitle": "The same app, answering three different videos.", "tableSub": "The five ideas sit underneath all three. Only these screens change with the ad; each row opens that screen in every phone.", "steps": [{"id": "ad", "label": "The ad"}, {"id": "today", "label": "Today’s paywall"}, {"sep": "Proposed"}, {"id": "weeks"}, {"id": "baby"}, {"id": "expect"}, {"id": "fears"}, {"id": "ready"}, {"id": "remind"}, {"id": "paywall"}, {"id": "offer"}], "stepCaps": {"today": "<b>Today</b>, all three ads reach the same paywall after name, sign-up and 13 questions: “Get on track for your peaceful pregnancy journey”, “SAVE -61%” against $149.99, a price not in your App Store list.", "fears": "Same for every ad: your fears list, named again later.", "ready": "Same for every ad: her picks on the program (idea 2).", "remind": "Same for every ad: notifications asked on the reminder screen (idea 3).", "paywall": "Same for every ad: $1.15 a week, 84% less than weekly (idea 4).", "offer": "Same for every ad: Monthly at $9.99 on close (idea 5)."}}</script>
+  <script type="application/json" id="duoData">{"flows": [{"k": "a", "ad": "a", "label": "Ad 1 · 3D baby", "pill": "Watching my baby grow in 3D is priceless…", "version": "Version A · Her baby first", "recs": [{"step": "value", "title": "Her 3D baby before any account", "why": "<b>Try</b> her baby in 3D at her week before any sign-up, <b>because</b> this video sold watching the baby grow, and today it sits ten steps behind an account.", "impact": "+5–10%", "il": "CR to purchase"}, {"step": "ask", "title": "Ask after she’s met her baby", "why": "<b>Try</b> “What do you expect?” after the 3D baby, with growth ticked, <b>because</b> the video already told you why she came.", "impact": "+10–15%", "il": "CR to purchase"}, {"step": "paywall", "title": "Her own baby on the paywall", "why": "<b>Try</b> a paywall that opens on her 3D baby at her week, <b>because</b> the baby she just met is a stronger reason than “a peaceful pregnancy journey”.", "impact": "+10–15%", "il": "CR to purchase"}]}, {"k": "b", "ad": "b", "label": "Ad 2 · Size every week", "pill": "13 weeks: my baby is the size of a clementine…", "version": "Version B · Week by week", "recs": [{"step": "value", "title": "Her weeks, not one week", "why": "<b>Try</b> her week’s size beside the weeks around it, <b>because</b> this video promised her size every week, and a series shows what she’ll come back for.", "impact": "+5–10%", "il": "CR to purchase"}, {"step": "ask", "title": "Ask what she wants each week", "why": "<b>Try</b> asking which weekly updates she wants and naming them on the paywall, <b>because</b> these moms come for a weekly ritual.", "impact": "+10–15%", "il": "CR to purchase"}, {"step": "paywall", "title": "Price it in her weeks", "why": "<b>Try</b> “27 weeks × $6.99 = $188.73” beside $59.99 a year, <b>because</b> she already thinks in weeks, and the year costs less than a third.", "impact": "+5–15%", "il": "ARPU"}]}, {"k": "c", "ad": "c", "label": "Ad 3 · Calendar", "pill": "If you’re pregnant right now stop scrolling… my pregnancy calendar", "version": "Version C · Her calendar", "recs": [{"step": "value", "title": "A to-do she can tick", "why": "<b>Try</b> her calendar with “Schedule healthcare visit” and “1st ultrasound” to tick, <b>because</b> the video promised “everything you need to get done”.", "impact": "+5–10%", "il": "CR to purchase"}, {"step": "remind", "title": "Reminders for her dates", "why": "<b>Try</b> notifications as reminders of her appointments and the trial end, <b>because</b> she came to stop stressing about dates.", "impact": "+10–20%", "il": "notification opt-in"}, {"step": "paywall", "title": "The saving, under your timeline", "why": "<b>Try</b> SAVE 84% against $6.99 weekly under your Today · Day 2 · Day 3 timeline, <b>because</b> a planner checks the math and the date.", "impact": "+5–15%", "il": "ARPU"}]}], "rows": [{"id": "ad", "h": "Your ad", "a": "The 3D baby video: “Watching my baby grow in 3D is priceless.”", "b": "The weekly video: “13 weeks: my baby is the size of a clementine 🍊”", "c": "The calendar video: “you scroll down and you can see my pregnancy calendar… no more stressing.”"}, {"id": "weeks", "h": "Weeks", "a": "“👶🏽 Track your baby in 3D, week by week”, 10 weeks picked.", "b": "“🍊 Your baby’s size, every week”, 13 weeks picked.", "c": "“✅ What to get done, week by week”, 6 weeks picked."}, {"id": "value", "h": "First value", "a": "Her 3D baby at 10 weeks: a strawberry, 0.25 oz · 1.61 in.", "b": "Your Today dashboard: week tabs, “Baby’s size: Clementine”, and her sizes at 6 · 10 · 13 · 40.", "c": "Your calendar: due date, progress, and “Schedule healthcare visit” and “1st ultrasound” to tick."}, {"id": "ask", "h": "Her question", "a": "“What do you expect from WeMoms?”, growth already ticked.", "b": "“What do you want to know each week?” Size, development, her body, experts.", "c": "“What do you want to stay on top of?” Medical follow-up, milestones, childbirth, symptoms."}, {"id": "ready", "h": "Program", "a": "“Your 3D Baby and program are ready!”", "b": "“Your week-by-week program is ready!”", "c": "“Your calendar and program are ready!”"}, {"id": "remind", "h": "Notifications", "a": "For the trial reminder and her baby this week.", "b": "For the trial reminder and her baby this week.", "c": "For her healthcare visit, her 1st ultrasound and the trial end."}, {"id": "paywall", "h": "Paywall", "a": "Result-led: her 3D baby at her week on top, 4.8 ★, then the plans.", "b": "Priced in her weeks: “27 weeks × $6.99 = $188.73” against $59.99 a year.", "c": "Your Today · Day 2 · Day 3 timeline, her to-dos under it, SAVE 84%."}], "tableTitle": "Three versions of the same app, one per video.", "tableSub": "The five ideas sit underneath all three; these are the screens that change. Each row opens that step in every phone.", "steps": [{"id": "ad", "label": "The ad"}, {"id": "today", "label": "Today’s paywall"}, {"sep": "Proposed"}, {"id": "weeks", "label": "Weeks"}, {"id": "value", "label": "First value", "ids": {"a": "baby", "b": "size-b", "c": "cal-c"}}, {"id": "ask", "label": "Her question", "ids": {"a": "expect", "b": "ask-b", "c": "ask-c"}}, {"id": "ready", "label": "Your program"}, {"id": "remind", "label": "Notifications", "ids": {"c": "remind-c"}}, {"id": "paywall", "label": "Paywall", "ids": {"b": "paywall-b", "c": "paywall-c"}}, {"id": "offer", "label": "On close"}], "stepCaps": {"today": "<b>Today</b>, all three ads reach the same paywall after name, sign-up and 13 questions: “Get on track for your peaceful pregnancy journey”, “SAVE -61%” against $149.99, a price not in your App Store list.", "offer": "Same for every version: Monthly at $9.99, once, when she closes the paywall (idea 5)."}}</script>
 </section>
 
 <section class="au-sec au-white" id="prototype">
@@ -711,28 +830,73 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
       <button data-pick="wk:6">6</button><button data-pick="wk:10">10</button><button data-pick="wk:13">13</button>
     </div>
     <button class="wm-link"><span data-t="w_dk">I don't know</span></button>
-    <button class="wm-cta" data-go="baby"><span data-t="c_c">Continue</span></button>
+    <button class="wm-cta" data-go="next"><span data-t="c_c">Continue</span></button>
   </div>
 </section>
 
-<section class="scr" data-id="baby">
+<section class="scr" data-id="baby" data-ad="a">
   <div class="body wm-bb">
     <div class="wm-top"><button class="wm-back" data-back aria-label="Back">‹</button><div class="wm-prog"><i style="width:30%"></i></div></div>
-    <div class="wm-3d" data-hl="1"><img src="assets/crop/baby3d.png" alt=""><span class="wm-v3d"><span data-t="b_3d">View in 3D</span> ▸</span></div>
+    <div class="wm-3d" data-hl="1 a1"><img src="assets/crop/baby3d.png" alt=""><span class="wm-v3d"><span data-t="b_3d">View in 3D</span> ▸</span></div>
     <p class="wm-wk"><b data-bind="wk"></b> <span data-t="b_w">weeks</span></p>
     <h1 class="wm-h1"><span data-t="b_s">Your baby is the size of</span> <span class="wm-pink" data-bind="label:fruit"></span></h1>
     <p class="wm-sub wm-c" data-show="wk:10">0.25 oz · 1.61 in</p>
     <p class="wm-sub wm-c"><span data-t="b_n">Next: we’ll build your custom program. You can save it to an account after.</span></p>
-    <button class="wm-cta" data-go="expect"><span data-t="b_c">Create my program</span></button>
+    <button class="wm-cta" data-go="next"><span data-t="b_c">Create my program</span></button>
     <button class="wm-link"><span data-t="b_l">I already have an account</span></button>
   </div>
 </section>
 
-<section class="scr" data-id="expect">
+<section class="scr" data-id="size-b" data-ad="b">
+  <div class="body wm-sb">
+    <div class="wm-today"><span class="wm-av2">A</span><b><span data-t="sb_t">Today</span></b><i>▦</i></div>
+    <div class="wm-tabs"><span><span data-t="sb_w">Week</span> <b id="wmWp"></b></span><span class="on"><span data-t="sb_w2">Week</span> <b data-bind="wk"></b></span><span><span data-t="sb_w3">Week</span> <b id="wmWn"></b></span></div>
+    <div class="wm-size">
+      <div><small><span data-t="sb_s">Baby's size</span></small><b class="wm-fr" data-show="wk:6"><span data-t="fr6">Blueberry</span></b><b class="wm-fr" data-show="wk:10"><span data-t="fr10">Strawberry</span></b><b class="wm-fr" data-show="wk:13"><span data-t="fr13">Clementine</span></b></div>
+      <img src="assets/crop/baby3d.png" alt="">
+      <span class="wm-v3d"><span data-t="b_3d2">View in 3D</span> ▸</span>
+    </div>
+    <div class="wm-card wm-strip" data-hl="1 b1">
+      <p class="wm-k"><span data-t="sb_k">Her size, week by week</span></p>
+      <div class="wm-wks">
+        <div data-wk="6"><b>6</b><span data-t="sb_6">blueberry</span></div>
+        <div data-wk="10"><b>10</b><span data-t="sb_10">strawberry</span></div>
+        <div data-wk="13"><b>13</b><span data-t="sb_13">clementine</span></div>
+        <div><b>40</b><span data-t="sb_40">birth</span></div>
+      </div>
+      <p class="wm-sub"><span data-t="sb_n">A new size every Monday, with what changes for her and for you.</span></p>
+    </div>
+    <button class="wm-cta" data-go="next"><span data-t="sb_c">Get my weekly updates</span></button>
+  </div>
+</section>
+
+<section class="scr" data-id="cal-c" data-ad="c">
+  <div class="body wm-cb">
+    <div class="wm-calh"><button class="wm-back" data-back aria-label="Back">‹</button><b><span data-t="cc_t">Your calendar</span></b><i>▦</i></div>
+    <div class="wm-card wm-duec"><p><span data-t="cc_d">Due date:</span> <b id="wmDue2"></b><span class="wm-edit"><span data-t="cc_e">Edit</span></span></p><div class="wm-bar"><i id="wmBar"></i></div><small id="wmPct"></small></div>
+    <div class="wm-ctabs"><span class="on"><span data-t="cc_a">All</span></span><span><span data-t="cc_m">Milestones</span></span><span><span data-t="cc_f">Medical Follow-up</span></span></div>
+    <div class="wm-todo" data-hl="1 c1">
+      <button data-toggle="todo:visit"><i>🩺</i><span><b><span data-t="cc_1">Schedule healthcare visit</span></b><small><span data-t="cc_1s">This week</span></small></span><em>✓</em></button>
+      <button data-toggle="todo:us"><i>🔎</i><span><b><span data-t="cc_2">1st ultrasound</span></b><small><span data-t="cc_2s">Coming up</span></small></span><em>✓</em></button>
+    </div>
+    <p class="wm-win"><span data-bind="count:todo"></span> <span data-t="cc_w">of 2 done this week</span></p>
+    <div class="wm-card">
+      <p class="wm-k"><span data-t="cc_k">Next in your calendar</span></p>
+      <div class="wm-keys">
+        <div><i>◐</i><b><span data-t="r_k1c">2nd trimester</span></b><small class="wmK1"></small></div>
+        <div><i>⚥</i><b><span data-t="r_k2c">Gender Reveal</span></b><small class="wmK2"></small></div>
+        <div><i>👣</i><b><span data-t="r_k3c">Baby's 1st Kicks</span></b><small class="wmK3"></small></div>
+      </div>
+    </div>
+    <button class="wm-cta" data-go="next"><span data-t="cc_c">Continue</span></button>
+  </div>
+</section>
+
+<section class="scr" data-id="expect" data-ad="a">
   <div class="body">
     <div class="wm-top"><button class="wm-back" data-back aria-label="Back">‹</button><div class="wm-prog"><i style="width:50%"></i></div></div>
     <h1 class="wm-h1"><span data-t="x_h">What do you expect from WeMoms?</span></h1>
-    <div class="wm-opts">
+    <div class="wm-opts" data-hl="2 a2">
       <button data-toggle="ex:growth"><span data-t="x_1">Track my baby's growth</span><i></i></button>
       <button data-toggle="ex:symptoms"><span data-t="x_2">Manage my symptoms</span><i></i></button>
       <button data-toggle="ex:birth"><span data-t="x_3">Prepare for childbirth</span><i></i></button>
@@ -741,30 +905,45 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
       <button data-toggle="ex:mental"><span data-t="x_6">Have mental health support</span><i></i></button>
       <button data-toggle="ex:community"><span data-t="x_7">Join a supportive community</span><i></i></button>
     </div>
-    <button class="wm-cta" data-go="fears"><span data-t="c_c2">Continue</span></button>
+    <button class="wm-cta" data-go="next"><span data-t="c_c2">Continue</span></button>
   </div>
 </section>
 
-<section class="scr" data-id="fears">
+<section class="scr" data-id="ask-b" data-ad="b">
   <div class="body">
-    <div class="wm-top"><button class="wm-back" data-back aria-label="Back">‹</button><div class="wm-prog"><i style="width:70%"></i></div></div>
-    <h1 class="wm-h1"><span data-t="f_h">What are your fears during pregnancy?</span></h1>
-    <div class="wm-opts">
-      <button data-toggle="fe:pain"><span data-t="f_1">Labor and delivery pain</span><i></i></button>
-      <button data-toggle="fe:health"><span data-t="f_2">Baby's health concerns</span><i></i></button>
-      <button data-toggle="fe:stress"><span data-t="f_3">Too much stress &amp; anxiety</span><i></i></button>
-      <button data-toggle="fe:compl"><span data-t="f_4">Unexpected complications</span><i></i></button>
-      <button data-toggle="fe:ppd"><span data-t="f_5">Postpartum depression</span><i></i></button>
-      <button data-toggle="fe:money"><span data-t="f_6">Financial burden</span><i></i></button>
-      <button data-toggle="fe:none"><span data-t="f_7">None</span><i></i></button>
+    <div class="wm-top"><button class="wm-back" data-back aria-label="Back">‹</button><div class="wm-prog"><i style="width:55%"></i></div></div>
+    <h1 class="wm-h1"><span data-t="qb_h">What do you want to know each week?</span></h1>
+    <div class="wm-opts" data-hl="2 b2">
+      <button data-toggle="wb:size"><span data-t="qb_1">My baby's size</span><i></i></button>
+      <button data-toggle="wb:dev"><span data-t="qb_2">How my baby is developing</span><i></i></button>
+      <button data-toggle="wb:body"><span data-t="qb_3">What's happening in my body</span><i></i></button>
+      <button data-toggle="wb:expert"><span data-t="qb_4">Advice from experts</span><i></i></button>
     </div>
-    <button class="wm-cta" data-go="ready"><span data-t="c_c3">Continue</span></button>
+    <p class="wm-sub wm-c"><span data-t="qb_n">We’ll send these every week, in the order you pick them.</span></p>
+    <button class="wm-cta" data-go="next"><span data-t="c_c3">Continue</span></button>
+  </div>
+</section>
+
+<section class="scr" data-id="ask-c" data-ad="c">
+  <div class="body">
+    <div class="wm-top"><button class="wm-back" data-back aria-label="Back">‹</button><div class="wm-prog"><i style="width:55%"></i></div></div>
+    <h1 class="wm-h1"><span data-t="qc_h">What do you want to stay on top of?</span></h1>
+    <div class="wm-opts" data-hl="2">
+      <button data-toggle="cc:medical"><span data-t="qc_1">Medical follow-up</span><i></i></button>
+      <button data-toggle="cc:milestones"><span data-t="qc_2">Milestones</span><i></i></button>
+      <button data-toggle="cc:birth"><span data-t="qc_3">Prepare for childbirth</span><i></i></button>
+      <button data-toggle="cc:symptoms"><span data-t="qc_4">Manage my symptoms</span><i></i></button>
+    </div>
+    <p class="wm-sub wm-c"><span data-t="qc_n">Each one adds its dates to your calendar.</span></p>
+    <button class="wm-cta" data-go="next"><span data-t="c_c4">Continue</span></button>
   </div>
 </section>
 
 <section class="scr" data-id="ready">
   <div class="body wm-rb">
-    <h1 class="wm-h1"><span data-t="r_h">Your 3D Baby and program are ready!</span></h1>
+    <h1 class="wm-h1" data-show="ad:a"><span data-t="r_h">Your 3D Baby and program are ready!</span></h1>
+    <h1 class="wm-h1" data-show="ad:b"><span data-t="r_hb">Your week-by-week program is ready!</span></h1>
+    <h1 class="wm-h1" data-show="ad:c"><span data-t="r_hc">Your calendar and program are ready!</span></h1>
     <div class="wm-card wm-due"><p><span data-t="r_d">Your due date:</span> <b id="wmDue"></b></p><span class="wm-pill"><b id="wmLeft"></b> <span data-t="r_l">days to go</span></span></div>
     <div class="wm-card wm-built" data-hl="2">
       <p class="wm-k"><span data-t="r_b">Built around your answers</span></p>
@@ -778,38 +957,91 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
         <div><i>👣</i><b><span data-t="r_k3">Baby's 1st Kicks</span></b><small id="wmK3"></small></div>
       </div>
     </div>
-    <button class="wm-cta" data-go="remind"><span data-t="r_c">Discover my 3D Baby</span></button>
+    <button class="wm-cta" data-go="next"><span data-show="ad:a"><span data-t="r_c">Discover my 3D Baby</span></span><span data-show="ad:b"><span data-t="r_cb">See my weeks</span></span><span data-show="ad:c"><span data-t="r_cc">See my calendar</span></span></button>
   </div>
 </section>
 
-<section class="scr" data-id="remind">
+<section class="scr" data-id="remind" data-ad="a b">
   <div class="body wm-mb">
     <div class="wm-top"><button class="wm-back" data-back aria-label="Back">‹</button></div>
     <h1 class="wm-h1"><span data-t="m_h">We'll send you a reminder before your free trial ends</span></h1>
     <img class="wm-bell" src="assets/crop/bell.png" alt="">
     <div class="wm-card wm-notif" data-hl="3"><b><span data-t="m_n">Turn on notifications</span></b><span data-t="m_ns">for your trial reminder and what happens with your baby this week</span></div>
     <p class="wm-ok">✅ <span data-t="m_o">No payment due today</span></p>
-    <button class="wm-cta" data-go="paywall"><span data-t="m_c">Remind me &amp; try now</span></button>
+    <button class="wm-cta" data-go="next"><span data-t="m_c">Remind me &amp; try now</span></button>
   </div>
 </section>
 
-<section class="scr" data-id="paywall">
+<section class="scr" data-id="remind-c" data-ad="c">
+  <div class="body wm-mb">
+    <div class="wm-top"><button class="wm-back" data-back aria-label="Back">‹</button></div>
+    <h1 class="wm-h1"><span data-t="mc_h">Never miss a date in your calendar</span></h1>
+    <img class="wm-bell" src="assets/crop/bell.png" alt="">
+    <div class="wm-card wm-notif" data-hl="3 c2"><b><span data-t="m_n2">Turn on notifications</span></b><span data-t="mc_ns">for your healthcare visit, your 1st ultrasound, and the day before your free trial ends</span></div>
+    <p class="wm-ok">✅ <span data-t="m_o2">No payment due today</span></p>
+    <button class="wm-cta" data-go="next"><span data-t="m_c2">Remind me &amp; try now</span></button>
+  </div>
+</section>
+
+<section class="scr" data-id="paywall" data-ad="a">
+  <button class="wm-x" data-go="offer" aria-label="Close">✕</button>
+  <div class="body wm-pb wm-pa">
+    <div class="wm-pwh" data-hl="a3"><img src="assets/crop/baby3d.png" alt=""><span class="wm-wkb"><span data-t="pa_w">Week</span> <b data-bind="wk"></b></span><span class="wm-szb"><span data-t="pa_s">the size of</span> <span data-bind="label:fruit"></span></span></div>
+    <h1 class="wm-h2 wm-c" data-hl="2"><span>Alex,</span> <span data-t="pa_h">keep watching your baby grow, every week to 40</span></h1>
+    <p class="wm-for wm-c"><span data-t="p_f2">for</span> <span class="wmFor"></span></p>
+    <p class="wm-proof">★ <span data-t="pa_r">4.8 · 27,490 ratings on the App Store</span></p>
+    <p class="wm-free"><span data-t="p_tr2">3 days of free trial, $0 today</span></p>
+    <div class="wm-plans" data-hl="4">
+      <button class="wm-plan" data-pick="plan:year"><i></i><div><b><span data-t="p_y">Yearly Plan</span></b><small><span data-t="p_yp">$59.99 / Year</span></small></div><strong><span data-t="p_yw">$1.15</span><em><span data-t="p_pw">per week</span></em></strong><span class="wm-save"><span data-t="p_sv">SAVE 84%</span></span></button>
+      <button class="wm-plan" data-pick="plan:week"><i></i><div><b><span data-t="p_w">Weekly Plan</span></b><small><span data-t="p_wp">$6.99 / Week</span></small></div><strong><span data-t="p_wy">$363.48</span><em><span data-t="p_py">a year</span></em></strong></button>
+    </div>
+    <button class="wm-cta"><span data-t="p_c2">Start my Free Trial</span></button>
+    <p class="wm-fine"><span data-t="p_n2">No commitment. Cancel anytime.</span></p>
+  </div>
+</section>
+
+<section class="scr" data-id="paywall-b" data-ad="b">
   <button class="wm-x" data-go="offer" aria-label="Close">✕</button>
   <div class="body wm-pb">
     <h1 class="wm-h2 wm-c"><span>Alex,</span> <span data-t="p_h">your week</span> <span data-bind="wk"></span> <span data-t="p_h2">program is ready</span></h1>
-    <p class="wm-for wm-c" data-hl="2"><span data-t="p_f">for</span> <span id="wmFor"></span></p>
-    <ol class="wm-tl">
-      <li><b><span data-t="t_1">Today</span></b><span data-t="t_1s">Get access to all premium features like 3D baby for free</span></li>
-      <li><b><span data-t="t_2">Day 2</span></b><span data-t="t_2s">We’ll send you a reminder that your trial is ending in 24h</span></li>
-      <li><b><span data-t="t_3">Day 3</span></b><span data-t="t_3s">Your membership starts. You can cancel anytime.</span></li>
-    </ol>
+    <p class="wm-for wm-c" data-hl="2"><span data-t="p_f">for</span> <span class="wmFor"></span></p>
+    <div class="wm-ladder">
+      <div data-wk="6"><b>6</b><span data-t="sb_6b">blueberry</span></div>
+      <div data-wk="10"><b>10</b><span data-t="sb_10b">strawberry</span></div>
+      <div data-wk="13"><b>13</b><span data-t="sb_13b">clementine</span></div>
+      <div><b>40</b><span id="wmDue3"></span></div>
+    </div>
+    <div class="wm-card wm-math" data-hl="4 b3">
+      <p><span data-t="pb_m">Weekly until your due date</span><b id="wmWkTot"></b></p>
+      <small id="wmWkCalc"></small>
+      <p class="wm-mo"><span data-t="pb_y">Yearly Plan, every week to 40 and after</span><b><span data-t="p_yp2">$59.99</span></b></p>
+    </div>
     <p class="wm-free"><span data-t="p_tr">3 days of free trial, $0 today</span></p>
     <div class="wm-plans" data-hl="4">
       <button class="wm-plan" data-pick="plan:year"><i></i><div><b><span data-t="p_y">Yearly Plan</span></b><small><span data-t="p_yp">$59.99 / Year</span></small></div><strong><span data-t="p_yw">$1.15</span><em><span data-t="p_pw">per week</span></em></strong><span class="wm-save"><span data-t="p_sv">SAVE 84%</span></span></button>
       <button class="wm-plan" data-pick="plan:week"><i></i><div><b><span data-t="p_w">Weekly Plan</span></b><small><span data-t="p_wp">$6.99 / Week</span></small></div><strong><span data-t="p_wy">$363.48</span><em><span data-t="p_py">a year</span></em></strong></button>
     </div>
     <button class="wm-cta"><span data-t="p_c">Start my Free Trial</span></button>
-    <p class="wm-fine"><span data-t="p_n">No commitment. Cancel anytime.</span></p>
+  </div>
+</section>
+
+<section class="scr" data-id="paywall-c" data-ad="c">
+  <button class="wm-x" data-go="offer" aria-label="Close">✕</button>
+  <div class="body wm-pb">
+    <h1 class="wm-h2 wm-c"><span>Alex,</span> <span data-t="pc_h">your week</span> <span data-bind="wk"></span> <span data-t="pc_h2">calendar and program are ready</span></h1>
+    <p class="wm-for wm-c" data-hl="2"><span data-t="p_f3">for</span> <span class="wmFor"></span></p>
+    <ol class="wm-tl">
+      <li><b><span data-t="t_1">Today</span></b><span data-t="t_1s">Get access to all premium features like 3D baby for free</span></li>
+      <li><b><span data-t="t_2">Day 2</span></b><span data-t="t_2s">We’ll send you a reminder that your trial is ending in 24h</span></li>
+      <li><b><span data-t="t_3">Day 3</span></b><span data-t="t_3s">Your membership starts. You can cancel anytime.</span></li>
+    </ol>
+    <p class="wm-calm">✓ <span data-t="pc_c">In your calendar: Schedule healthcare visit · 1st ultrasound</span></p>
+    <p class="wm-free"><span data-t="p_tr3">3 days of free trial, $0 today</span></p>
+    <div class="wm-plans" data-hl="4 c3">
+      <button class="wm-plan" data-pick="plan:year"><i></i><div><b><span data-t="p_y">Yearly Plan</span></b><small><span data-t="p_yp">$59.99 / Year</span></small></div><strong><span data-t="p_yw">$1.15</span><em><span data-t="p_pw">per week</span></em></strong><span class="wm-save"><span data-t="p_sv">SAVE 84%</span></span></button>
+      <button class="wm-plan" data-pick="plan:week"><i></i><div><b><span data-t="p_w">Weekly Plan</span></b><small><span data-t="p_wp">$6.99 / Week</span></small></div><strong><span data-t="p_wy">$363.48</span><em><span data-t="p_py">a year</span></em></strong></button>
+    </div>
+    <button class="wm-cta"><span data-t="p_c3">Start my Free Trial</span></button>
   </div>
 </section>
 
@@ -820,7 +1052,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <p class="wm-sub"><span data-t="o_s">Keep your 3D baby and your program month by month.</span></p>
     <div class="wm-card wm-ofc" data-hl="5"><div><b><span data-t="o_p">WeMoms Premium · Monthly</span></b><small><span data-t="o_c">Cancel anytime.</span></small></div><strong><span data-t="o_pr">$9.99</span><em><span data-t="o_pm">/ month</span></em></strong></div>
     <button class="wm-cta"><span data-t="o_b">Start monthly</span></button>
-    <button class="wm-link" data-go="paywall"><span data-t="o_n">No thanks</span></button>
+    <button class="wm-link" data-back><span data-t="o_n">No thanks</span></button>
   </div>
 </section>
 
@@ -922,9 +1154,15 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "growth",
    "birth"
   ],
-  "fe": [
-   "stress"
+  "wb": [
+   "size",
+   "dev"
   ],
+  "cc": [
+   "medical",
+   "milestones"
+  ],
+  "todo": [],
   "plan": "year"
  },
  "labels": {
@@ -942,31 +1180,40 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "mental": "Mental health support",
    "community": "Supportive community"
   },
-  "fe": {
-   "pain": "Labor pain",
-   "health": "Baby's health",
-   "stress": "Stress & anxiety",
-   "compl": "Complications",
-   "ppd": "Postpartum depression",
-   "money": "Financial burden",
-   "none": ""
+  "wb": {
+   "size": "My baby's size",
+   "dev": "How my baby develops",
+   "body": "My body",
+   "expert": "Expert advice"
+  },
+  "cc": {
+   "medical": "Medical follow-up",
+   "milestones": "Milestones",
+   "birth": "Prepare for childbirth",
+   "symptoms": "Manage my symptoms"
   }
  },
  "chips": {
   "ad": "Meta ad",
   "weeks": "Weeks",
-  "baby": "Your baby",
+  "baby": "Her 3D baby",
+  "size-b": "Her weeks",
+  "cal-c": "Her calendar",
   "expect": "Expectations",
-  "fears": "Fears",
+  "ask-b": "Each week",
+  "ask-c": "Stay on top",
   "ready": "Your program",
   "remind": "Reminder",
+  "remind-c": "Reminders",
   "paywall": "Paywall",
+  "paywall-b": "Paywall",
+  "paywall-c": "Paywall",
   "offer": "On close"
  },
  "hero": [
   "baby",
-  "paywall",
-  "ready"
+  "paywall-b",
+  "cal-c"
  ],
  "outcome": {
   "cr": "+15%",
@@ -976,7 +1223,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
   {
    "screen": "baby",
    "title": "Show her baby before asking for an account",
-   "what": "Today “Your baby is the size of Chia seed” arrives with “Sign up to create your custom program” and three sign-up buttons, ten steps before the paywall. Show the 3D baby and its size first, and ask to save the program after the paywall.",
+   "what": "Today “Your baby is the size of Chia seed” arrives with “Sign up to create your custom program” and three sign-up buttons, ten steps before the paywall. Open on what her ad promised instead: her 3D baby, her sizes week by week, or her calendar, and ask for the account after the paywall.",
    "impact": "+5–10%",
    "il": "CR to purchase"
   },
@@ -995,7 +1242,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "il": "notification opt-in"
   },
   {
-   "screen": "paywall",
+   "screen": "paywall-b",
    "title": "Make the yearly saving one she can check",
    "what": "The paywall shows “SAVE -61%” against $149.99 a year, a price that isn’t in your App Store list. Against your own $6.99 weekly plan ($363.48 a year), $59.99 a year is $1.15 a week and 84% less.",
    "impact": "+5–15%",
@@ -1018,25 +1265,23 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
   "weeks": {
    "idea": 0,
    "t": "Your weeks question, first",
-   "why": "The ad already says she’s pregnant, so “What brings you here?” is skipped. The week and the first answer follow the ad she saw."
+   "why": "The ad already says she’s pregnant, so “What brings you here?” is skipped. From here each ad opens its own version."
   },
   "baby": {
    "idea": 1,
-   "t": "Her baby before an account",
-   "why": "<b>Try</b> the 3D baby and its size before any sign-up, with the account asked after the paywall, <b>because</b> today three sign-up buttons sit on this screen, ten steps before the price.",
+   "t": "A1 · Her 3D baby before any account",
+   "why": "<b>Try</b> showing her baby in 3D at her week before any sign-up, <b>because</b> this video sold watching the baby grow, and today it sits ten steps behind an account.",
    "iv": "CR +5–10%",
    "il": "to purchase",
-   "also": "The 3D baby and “0.25 oz · 1.61 in” are from your App Store screenshot of week 10."
+   "also": "Version A. The 3D baby and “0.25 oz · 1.61 in” are from your App Store screenshot of week 10."
   },
   "expect": {
-   "idea": 0,
-   "t": "Your question, word for word",
-   "why": "Your “What do you expect from WeMoms?” list. After the 3D or weekly ad, “Track my baby's growth” is already ticked; after the calendar ad, “Feel calm during my pregnancy”."
-  },
-  "fears": {
-   "idea": 0,
-   "t": "Your question, word for word",
-   "why": "Your fears list. Her picks are named again on the program and the paywall."
+   "idea": 2,
+   "t": "A2 · Ask after she’s met her baby",
+   "why": "<b>Try</b> asking what she expects after the 3D baby, with “Track my baby's growth” ticked, and naming her picks on the paywall, <b>because</b> the video already told you why she came.",
+   "iv": "CR +10–15%",
+   "il": "to purchase",
+   "also": "Version A. Your question and answers, word for word."
   },
   "ready": {
    "idea": 2,
@@ -1044,29 +1289,83 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "why": "<b>Try</b> naming her picks on the program and the paywall, <b>because</b> she answers 13 questions and the paywall still opens on the same “peaceful pregnancy journey” for everyone.",
    "iv": "CR +10–15%",
    "il": "to purchase",
-   "also": "Due date and key dates follow your own program screen."
+   "also": "Each version names its own picks, and its own headline: 3D baby, weeks, or calendar."
   },
   "remind": {
    "idea": 3,
    "t": "Notifications where the reminder is promised",
    "why": "<b>Try</b> asking for notifications on your own reminder screen, <b>because</b> today the system prompt opens over “What's your name?”, before she has a reason to say yes.",
    "iv": "+10–20%",
-   "il": "notification opt-in"
+   "il": "notification opt-in",
+   "also": "Versions A and B. Version C asks for its calendar dates instead."
   },
   "paywall": {
-   "idea": 4,
-   "t": "A saving she can check",
-   "why": "<b>Try</b> $59.99 a year as $1.15 a week, 84% less than your $6.99 weekly plan, <b>because</b> today’s “SAVE -61%” is measured against $149.99, a price not in your App Store list.",
-   "iv": "ARPU +5–15%",
-   "il": "",
-   "also": "Also here: idea 2, her picks under the headline. Your trial timeline stays as it is."
+   "idea": 2,
+   "t": "A3 · Her own baby on the paywall",
+   "why": "<b>Try</b> a paywall that opens on her 3D baby at her week, then your 4.8 stars and the plans, <b>because</b> the baby she just met is a stronger reason than “a peaceful pregnancy journey”.",
+   "iv": "CR +10–15%",
+   "il": "to purchase",
+   "also": "Version A. Also here: idea 4, $1.15 a week, 84% less than weekly."
   },
   "offer": {
    "idea": 5,
    "t": "Monthly, on close",
    "why": "<b>Try</b> your $9.99 monthly plan once, when she closes the paywall, <b>because</b> we saw no second offer, and a month asks for less than a year.",
    "iv": "CR +5–10%",
-   "il": "from paywall closers"
+   "il": "from paywall closers",
+   "also": "Same for all three versions; ✕ on any of the three paywalls opens it."
+  },
+  "size-b": {
+   "idea": 1,
+   "t": "B1 · Her weeks, not one week",
+   "why": "<b>Try</b> opening on her week’s size beside the weeks around it, blueberry, strawberry, clementine, <b>because</b> this video promised her size every week, and a series shows what she’ll come back for.",
+   "iv": "CR +5–10%",
+   "il": "to purchase",
+   "also": "Version B, in your Today dashboard’s design. Only sizes you publish: week 6 (dashboard), 10 (listing), 13 (your ad)."
+  },
+  "cal-c": {
+   "idea": 1,
+   "t": "C1 · A to-do she can tick",
+   "why": "<b>Try</b> opening on her calendar with “Schedule healthcare visit” and “1st ultrasound” to tick, <b>because</b> the video promised “everything you need to get done”, and one ticked item is a first win.",
+   "iv": "CR +5–10%",
+   "il": "to purchase",
+   "also": "Version C, in your “Your calendar” design, items word for word from your App Store screenshot."
+  },
+  "ask-b": {
+   "idea": 2,
+   "t": "B2 · What she wants each week",
+   "why": "<b>Try</b> asking which weekly updates she wants and naming them on the paywall, <b>because</b> these moms come for a weekly ritual, and their answer is what you’ll send every week.",
+   "iv": "CR +10–15%",
+   "il": "to purchase",
+   "also": "Version B. The answers are features from your listing: size, development, “stories on you and your body”, expert content."
+  },
+  "ask-c": {
+   "idea": 0,
+   "t": "C · What she wants to stay on top of",
+   "why": "Version C asks what goes into her calendar, using your own calendar tabs and answers. Her picks are named on the program and the paywall."
+  },
+  "remind-c": {
+   "idea": 3,
+   "t": "C2 · Reminders for her dates",
+   "why": "<b>Try</b> asking for notifications as reminders of her calendar dates and the trial end, <b>because</b> she came to stop stressing about dates, so a reminder is a reason to say yes.",
+   "iv": "+10–20%",
+   "il": "notification opt-in"
+  },
+  "paywall-b": {
+   "idea": 4,
+   "t": "B3 · Price it in her weeks",
+   "why": "<b>Try</b> “weekly until your due date: 27 weeks × $6.99 = $188.73” beside $59.99 a year, <b>because</b> she already thinks in weeks, and the year then costs less than a third.",
+   "iv": "ARPU +5–15%",
+   "il": "",
+   "also": "Version B. The weeks and the total follow her week; $6.99 and $59.99 are your App Store prices."
+  },
+  "paywall-c": {
+   "idea": 4,
+   "t": "C3 · The saving, under your timeline",
+   "why": "<b>Try</b> SAVE 84% against your own $6.99 weekly, under your Today · Day 2 · Day 3 timeline, <b>because</b> a mom who plans checks the math and when she’ll be charged.",
+   "iv": "ARPU +5–15%",
+   "il": "",
+   "also": "Version C, the closest to today’s layout: your timeline word for word, her to-dos under it."
   }
  },
  "langs": [
@@ -1113,14 +1412,6 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "x_5": "Une alimentation et des habitudes saines",
    "x_6": "Un soutien pour ma santé mentale",
    "x_7": "Rejoindre une communauté bienveillante",
-   "f_h": "Quelles sont vos peurs pendant la grossesse ?",
-   "f_1": "La douleur de l’accouchement",
-   "f_2": "La santé de bébé",
-   "f_3": "Trop de stress et d’anxiété",
-   "f_4": "Des complications inattendues",
-   "f_5": "La dépression post-partum",
-   "f_6": "Le coût financier",
-   "f_7": "Aucune",
    "r_h": "Votre bébé en 3D et votre programme sont prêts !",
    "r_d": "Votre date du terme :",
    "r_l": "jours restants",
@@ -1164,7 +1455,81 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "o_pm": "/ mois",
    "o_b": "Commencer au mois",
    "o_n": "Non merci",
-   "e_c": "✅ Quoi faire, et quand, chaque semaine"
+   "e_c": "✅ Quoi faire, et quand, chaque semaine",
+   "sb_t": "Aujourd’hui",
+   "sb_w": "Semaine",
+   "sb_w2": "Semaine",
+   "sb_w3": "Semaine",
+   "sb_s": "Taille de bébé",
+   "fr6": "Myrtille",
+   "fr10": "Fraise",
+   "fr13": "Clémentine",
+   "b_3d2": "Voir en 3D",
+   "sb_k": "Sa taille, semaine après semaine",
+   "sb_6": "myrtille",
+   "sb_10": "fraise",
+   "sb_13": "clémentine",
+   "sb_40": "naissance",
+   "sb_n": "Une nouvelle taille chaque lundi, avec ce qui change pour bébé et pour vous.",
+   "sb_c": "Recevoir mes nouvelles de la semaine",
+   "cc_t": "Votre calendrier",
+   "cc_d": "Terme :",
+   "cc_e": "Modifier",
+   "cc_a": "Tout",
+   "cc_m": "Étapes",
+   "cc_f": "Suivi médical",
+   "cc_1": "Prendre rendez-vous médical",
+   "cc_1s": "Cette semaine",
+   "cc_2": "1re échographie",
+   "cc_2s": "Bientôt",
+   "cc_w": "sur 2 faites cette semaine",
+   "cc_c": "Continuer",
+   "qb_h": "Que voulez-vous savoir chaque semaine ?",
+   "qb_1": "La taille de mon bébé",
+   "qb_2": "Comment mon bébé se développe",
+   "qb_3": "Ce qui se passe dans mon corps",
+   "qb_4": "Les conseils d’experts",
+   "qb_n": "On vous les envoie chaque semaine, dans l’ordre où vous les choisissez.",
+   "qc_h": "Que voulez-vous garder à l’œil ?",
+   "qc_1": "Le suivi médical",
+   "qc_2": "Les grandes étapes",
+   "qc_3": "Me préparer à l’accouchement",
+   "qc_4": "Gérer mes symptômes",
+   "qc_n": "Chacun ajoute ses dates à votre calendrier.",
+   "c_c4": "Continuer",
+   "r_hb": "Votre programme semaine par semaine est prêt !",
+   "r_hc": "Votre calendrier et votre programme sont prêts !",
+   "r_cb": "Voir mes semaines",
+   "r_cc": "Voir mon calendrier",
+   "mc_h": "Ne manquez aucune date de votre calendrier",
+   "m_n2": "Activer les notifications",
+   "mc_ns": "pour votre rendez-vous médical, votre 1re échographie et la veille de la fin de votre essai gratuit",
+   "m_o2": "Rien à payer aujourd’hui",
+   "m_c2": "Me le rappeler et essayer",
+   "pa_w": "Semaine",
+   "pa_s": "de la taille",
+   "pa_h": "continuez à voir grandir votre bébé, chaque semaine jusqu’à 40",
+   "p_f2": "pour",
+   "pa_r": "4,7 · 35 856 notes sur l’App Store",
+   "p_tr2": "3 jours d’essai gratuit, 0 € aujourd’hui",
+   "p_c2": "Commencer mon essai gratuit",
+   "p_n2": "Sans engagement. Annulable à tout moment.",
+   "sb_6b": "myrtille",
+   "sb_10b": "fraise",
+   "sb_13b": "clémentine",
+   "pb_m": "En hebdomadaire jusqu’au terme",
+   "pb_y": "Annuel, chaque semaine jusqu’à 40 et après",
+   "p_yp2": "{yr}",
+   "cc_k": "Prochaines dates",
+   "r_k1c": "2e trimestre",
+   "r_k2c": "Découvrir le sexe",
+   "r_k3c": "1ers coups de pied",
+   "pc_h": "votre calendrier de la semaine",
+   "pc_h2": "et votre programme sont prêts",
+   "p_f3": "pour",
+   "pc_c": "Dans votre calendrier : rendez-vous médical · 1re échographie",
+   "p_tr3": "3 jours d’essai gratuit, 0 € aujourd’hui",
+   "p_c3": "Commencer mon essai gratuit"
   }
  },
  "labelsI18n": {
@@ -1183,14 +1548,17 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "mental": "Soutien santé mentale",
     "community": "Communauté bienveillante"
    },
-   "fe": {
-    "pain": "Douleur de l’accouchement",
-    "health": "Santé de bébé",
-    "stress": "Stress et anxiété",
-    "compl": "Complications",
-    "ppd": "Dépression post-partum",
-    "money": "Coût financier",
-    "none": ""
+   "wb": {
+    "size": "La taille de bébé",
+    "dev": "Son développement",
+    "body": "Mon corps",
+    "expert": "Conseils d’experts"
+   },
+   "cc": {
+    "medical": "Suivi médical",
+    "milestones": "Grandes étapes",
+    "birth": "Me préparer à l’accouchement",
+    "symptoms": "Gérer mes symptômes"
    }
   }
  },
@@ -1199,17 +1567,17 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
  "poster": "assets/walkthrough-poster.jpg",
  "compare": {
   "today": "today",
-  "proposed": "paywall",
+  "proposed": "paywall-c",
   "kicker": "The paywall, side by side",
-  "title": "Your paywall today, and with the five ideas.",
-  "sub": "Same timeline, same plans.",
+  "title": "Your paywall today, and version C.",
+  "sub": "Version C keeps your layout: same timeline, same plans. Versions A and B change the layout too; see them above.",
   "todayCap": "rebuilt word for word from your recorded paywall (name changed)",
   "rows": [
    {
     "h": "Headline",
     "idea": 2,
     "was": "“Get on track for your peaceful pregnancy journey”, for everyone",
-    "now": "“Your week 10 program is ready, for track my baby's growth · prepare for childbirth”"
+    "now": "“Your week 6 calendar and program are ready”, for medical follow-up · milestones"
    },
    {
     "h": "Yearly saving",
@@ -1227,7 +1595,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "h": "Before it",
     "idea": 3,
     "was": "Notifications asked over “What's your name?”",
-    "now": "Notifications asked on the reminder screen, just before"
+    "now": "Notifications asked as reminders for her healthcare visit, her 1st ultrasound and the trial end"
    },
    {
     "h": "On close",
@@ -1236,7 +1604,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "now": "Once: WeMoms Premium Monthly at $9.99"
    }
   ],
-  "kept": "Kept: your cream ground, the pink gradient button, the Today · Day 2 · Day 3 trial timeline word for word, “3 days of free trial, $0 today”, both plans, “Start my Free Trial” and “No commitment. Cancel anytime.”"
+  "kept": "Kept: your cream ground, the pink gradient button, the Today · Day 2 · Day 3 trial timeline word for word, “3 days of free trial, $0 today”, both plans and “Start my Free Trial”."
  },
  "tour": {
   "introLede": "Five ideas to turn more moms-to-be into WeMoms subscribers.",
@@ -1300,30 +1668,6 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     ]
    },
    {
-    "id": "fears",
-    "d": 1500,
-    "st": {
-     "fe": []
-    },
-    "tap": [
-     "[data-toggle=\"fe:stress\"]",
-     1000
-    ]
-   },
-   {
-    "id": "fears",
-    "d": 1100,
-    "st": {
-     "fe": [
-      "stress"
-     ]
-    },
-    "tap": [
-     ".wm-cta",
-     700
-    ]
-   },
-   {
     "id": "ready",
     "d": 3300,
     "pop": ".wm-built",
@@ -1376,7 +1720,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    },
    "baby": {
     "n": 1,
-    "t": "Her baby before an account",
+    "t": "Version A: her baby before an account",
     "l": "The 3D baby first; sign-up after the paywall.",
     "o": "+5–10%",
     "ol": "CR to purchase"
@@ -1385,11 +1729,6 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "k": "Context",
     "t": "Your question, word for word",
     "l": "What she expects from WeMoms."
-   },
-   "fears": {
-    "k": "Context",
-    "t": "Your question, word for word",
-    "l": "What she fears."
    },
    "ready": {
     "n": 2,
@@ -1406,11 +1745,11 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "ol": "opt-in"
    },
    "paywall": {
-    "n": 4,
-    "t": "A saving she can check",
-    "l": "$1.15 a week, 84% less than weekly.",
-    "o": "+5–15%",
-    "ol": "ARPU"
+    "n": 2,
+    "t": "Version A: her baby on the paywall",
+    "l": "Her 3D baby, her picks, then $1.15 a week.",
+    "o": "+10–15%",
+    "ol": "CR to purchase"
    },
    "offer": {
     "n": 5,
@@ -1429,6 +1768,10 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     {
      "dt": "$59.99 a year · $6.99 a week",
      "dd": "“WeMoms Premium – Yearly” and “– Weekly” in the In-App Purchases on the <a href=\"https://apps.apple.com/us/app/id938845147\">US App Store listing</a>, read 11 Nov 2026, and on your recorded paywall. $1.15 a week, $363.48 a year and 84% computed from them."
+    },
+    {
+     "dt": "27 weeks × $6.99 = $188.73 (version B)",
+     "dd": "Your $6.99 weekly price times the weeks left to 40 at her week (13 in the ad); recomputed for every week she picks, and in euros in French."
     },
     {
      "dt": "$9.99 a month",
@@ -1463,6 +1806,18 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     {
      "dt": "Questions, answers, program screen, reminder screen, paywall",
      "dd": "Your iOS onboarding as recorded by ScreensDesign in August 2026, verbatim; the tester’s name is replaced with “Alex”."
+    },
+    {
+     "dt": "Version B: Today, week tabs, Baby’s size, View in 3D",
+     "dd": "Your App Store screenshot “Your All-in-One Pregnancy Companion” (the Today dashboard). The weekly answers are your listing’s features: “Track baby’s growth in 3D each week”, “Get daily stories on you and your body”, “Discover expert content tailored just for you”."
+    },
+    {
+     "dt": "Version C: Your calendar, Due date, All · Milestones · Medical Follow-up, “Schedule healthcare visit”, “1st ultrasound”",
+     "dd": "Your App Store screenshot “Stay informed on what’s coming next”, word for word. “This week” and “Coming up” and the progress (her week out of 40) are ours."
+    },
+    {
+     "dt": "Sizes by week",
+     "dd": "Only the ones you publish: a blueberry at week 6 (your dashboard), a strawberry at 10 (your listing), a clementine at 13 (your ad)."
     },
     {
      "dt": "3D baby, “Strawberry”, “0.25 oz · 1.61 in” at week 10",
@@ -1517,31 +1872,55 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
 </script>
 
 <script>
-/* WeMoms hooks. The ad sets the week shown first (3D ad → 10 weeks, the strawberry from the listing;
-   size ad → 13 weeks, the clementine from that ad; calendar ad → 6 weeks, early, when the to-do list matters) and pre-ticks
-   "Track my baby's growth", or "Feel calm during my pregnancy" after the calendar ad ("no more stressing"). Due date and key
-   dates follow the recorded program screen: 2nd trimester 27 weeks before the due date, Gender Reveal 26,
-   Baby's 1st Kicks 24. "Today" is fixed at 11 Nov 2026 so stills and video are stable. */
+/* WeMoms hooks. Three ads, three versions (S.ad):
+   A 3D baby → 10 weeks (the strawberry and the 3D model from the listing), "Track my baby's growth" ticked, result-led paywall;
+   B size every week → 13 weeks (the clementine from that ad), her sizes week by week, the paywall priced in her weeks;
+   C calendar → 6 weeks, her calendar with two to-dos, appointment reminders, your own trial-timeline paywall.
+   Due date and key dates follow the recorded program screen (2nd trimester 27 weeks before the due date, Gender Reveal 26,
+   Baby's 1st Kicks 24). "Today" is fixed at 11 Nov 2026 so stills and video are stable. */
 var WM_T0 = new Date(2026, 10, 11);
+var WM_DEF = {a: {wk: '10', ex: ['growth', 'birth']}, b: {wk: '13', wb: ['size', 'dev']}, c: {wk: '6', cc: ['medical', 'milestones'], todo: []}};
+var WM_STAGE = {baby: 'v', 'size-b': 'v', 'cal-c': 'v', expect: 'q', 'ask-b': 'q', 'ask-c': 'q', remind: 'r', 'remind-c': 'r', paywall: 'p', 'paywall-b': 'p', 'paywall-c': 'p'};
+var WM_MAP = {v: {a: 'baby', b: 'size-b', c: 'cal-c'}, q: {a: 'expect', b: 'ask-b', c: 'ask-c'}, r: {a: 'remind', b: 'remind', c: 'remind-c'}, p: {a: 'paywall', b: 'paywall-b', c: 'paywall-c'}};
 function wmAdd(d, days){ var x = new Date(d); x.setDate(x.getDate() + days); return x; }
 function wmFmt(d, y){ var o = {month: 'short', day: 'numeric'}; if (y) o.year = 'numeric'; return d.toLocaleDateString(S.lang === 'fr' ? 'fr-FR' : 'en-US', o); }
+function wmMoney(v){ return S.lang === 'fr' ? v.toFixed(2).replace('.', ',') + ' €' : '$' + v.toFixed(2); }
+function wmDefaults(){
+  if (!S.ad || S._a === S.ad) return;
+  var d = WM_DEF[S.ad] || WM_DEF.a; Object.keys(d).forEach(function(k){ S[k] = JSON.parse(JSON.stringify(d[k])); });
+  S._a = S.ad;
+}
+var wmBusy = false;
 window.onSync = function(S){
   S.fruit = String(S.wk || '10');
-  var wk = +S.wk || 10, left = (40 - wk) * 7, due = wmAdd(WM_T0, left);
-  var el = function(id){ return document.getElementById(id); };
-  if (el('wmDue')) {
-    el('wmDue').textContent = wmFmt(due, true); el('wmLeft').textContent = left;
-    var fr = S.lang === 'fr';
-    el('wmK1').textContent = (fr ? 'dès le ' : 'FROM ') + wmFmt(wmAdd(due, -189));
-    el('wmK2').textContent = (fr ? 'dès le ' : 'FROM ') + wmFmt(wmAdd(due, -182));
-    el('wmK3').textContent = (fr ? 'dès le ' : 'FROM ') + wmFmt(wmAdd(due, -168));
-  }
-  var L = C.labels, picks = [].concat((S.ex || []).map(function(k){ return L.ex[k]; }), (S.fe || []).filter(function(k){ return k !== 'none'; }).map(function(k){ return L.fe[k]; }));
+  var wk = +S.wk || 10, left = (40 - wk) * 7, due = wmAdd(WM_T0, left), fr = S.lang === 'fr';
+  var el = function(id){ return document.getElementById(id); }, set = function(id, v){ var e = el(id); if (e) e.textContent = v; };
+  set('wmDue', wmFmt(due, true)); set('wmLeft', left); set('wmDue2', wmFmt(due, true)); set('wmDue3', wmFmt(due));
+  set('wmK1', (fr ? 'dès le ' : 'FROM ') + wmFmt(wmAdd(due, -189)));
+  set('wmK2', (fr ? 'dès le ' : 'FROM ') + wmFmt(wmAdd(due, -182)));
+  set('wmK3', (fr ? 'dès le ' : 'FROM ') + wmFmt(wmAdd(due, -168)));
+  ['wmK1', 'wmK2', 'wmK3'].forEach(function(k, i){ var e = el(k); document.querySelectorAll('.' + k).forEach(function(x){ x.textContent = e ? e.textContent : ''; }); });
+  set('wmWp', wk - 1); set('wmWn', wk + 1);
+  var pct = Math.round(wk / 40 * 100); if (el('wmBar')) el('wmBar').style.width = pct + '%'; set('wmPct', pct + '%');
+  var wl = 40 - wk; set('wmWkTot', wmMoney(wl * 6.99));
+  set('wmWkCalc', fr ? wl + ' semaines × 6,99 €' : wl + ' weeks × $6.99');
+  document.querySelectorAll('[data-wk]').forEach(function(x){ x.classList.toggle('on', x.dataset.wk === String(wk)); });
+  var L = C.labels, key = S.ad === 'b' ? 'wb' : S.ad === 'c' ? 'cc' : 'ex';
+  var picks = (S[key] || []).map(function(k){ return (L[key] || {})[k] || k; });
   if (el('wmChips')) el('wmChips').innerHTML = picks.map(function(p){ return '<span>' + p + '</span>'; }).join('');
-  if (el('wmFor')) el('wmFor').textContent = picks.slice(0, 2).join(' · ').toLowerCase();
+  document.querySelectorAll('.wmFor').forEach(function(x){ x.textContent = picks.slice(0, 2).join(' · ').toLowerCase(); });
+  /* the ad switch above the prototype: stay on the same stage, in the new version */
+  if (!wmBusy && wmOff()) setTimeout(wmFix, 0);
 };
+function wmOff(){ return typeof cur !== 'undefined' && cur && scr[cur] && scr[cur].dataset.ad && scr[cur].dataset.ad.split(' ').indexOf(String(S.ad)) < 0 && WM_STAGE[cur]; }
+function wmFix(){ if (!wmOff()) return; var to = WM_MAP[WM_STAGE[cur]][S.ad]; wmBusy = true; wmDefaults(); jump(to); wmBusy = false; }
 window.onEnter = function(id, S){
-  if (id === 'weeks' && S._a !== S.ad) { var pre = S.ad === 'c' ? 'calm' : 'growth'; S.wk = S.ad === 'b' ? '13' : S.ad === 'c' ? '6' : '10'; S.ex = [pre].concat((S.ex || []).filter(function(k){ return k !== 'growth' && k !== 'calm'; })); S._a = S.ad; sync(); }
+  /* a version's own screen opened directly (hero still, shortlist link): switch to that version */
+  var a = scr[id] && scr[id].dataset.ad;
+  if (a && a.split(' ').indexOf(String(S.ad)) < 0) { S.ad = a.split(' ')[0]; wmBusy = true; sync(); wmBusy = false; }
+  if (id !== 'ad' && S._a !== S.ad) { wmDefaults(); sync(); }
+  if (id === 'cal-c' && !HERO) { S.todo = []; sync(); }
+  if (id === 'cal-c' && HERO) { S.todo = ['visit']; sync(); }
 };
 </script>
 <script>
@@ -1551,6 +1930,11 @@ var S = C.state, scr = {}, ORDER = [], hist = [], cur = null, Q = location.searc
 var SHOT = /[?&](shot|phone|tour)\b/.test(Q), HERO = /[?&]hero\b/.test(Q);
 /* a screen with data-aside (e.g. the paywall TODAY for the side-by-side) renders for stills but is not part of the flow */
 document.querySelectorAll('.scr').forEach(function(s){ scr[s.dataset.id] = s; if (!s.hasAttribute('data-aside')) ORDER.push(s.dataset.id); });
+/* PER-AD FLOWS: a screen with data-ad="a b" is only in those ads' flows; data-go="next" = next screen of this flow */
+var ALL = ORDER.slice();
+function flowOrder(){ return ALL.filter(function(id){ var a = scr[id].dataset.ad; return !a || a.split(' ').indexOf(String(S.ad)) > -1; }); }
+ORDER = flowOrder();
+function nextOf(t){ if (t !== 'next') return t; var i = ORDER.indexOf(cur); return ORDER[i + 1] || ORDER[i]; }
 if (/[?&]shot\b/.test(Q)) document.documentElement.classList.add('shot');
 if (/[?&]phone\b/.test(Q)) document.documentElement.classList.add('shot', 'phoneonly');
 if (/[?&]clear\b/.test(Q)) document.documentElement.classList.add('clear');
@@ -1581,6 +1965,7 @@ function setLang(l){
 function lab(key){ var v = S[key]; var L = C.labels[key]; if (Array.isArray(v)) return v.map(function(x){ return L && L[x] || x; }).join(', '); return (L && L[v]) || v; }
 function sync(){
   applyLang();
+  var o = flowOrder(); if (o.join() !== ORDER.join()) { ORDER = o; var cc = document.getElementById('chips'); if (cc) cc.innerHTML = ''; if (cur) { paint(); return; } }
   document.querySelectorAll('[data-bind]').forEach(function(el){
     var b = el.dataset.bind, m = b.split(':');
     el.textContent = m[0] === 'label' ? lab(m[1]) : m[0] === 'count' ? (S[m[1]] || []).length : (S[b] == null ? '' : S[b]);
@@ -1646,10 +2031,10 @@ document.addEventListener('click', function(e){
   var L = e.target.closest('[data-setlang]'); if (L){ setLang(L.dataset.setlang); return; }
   if (e.target.closest('[data-langtoggle]') && LANGS.length > 1){ var k = LANGS.findIndex(function(x){ return x.code === S.lang; }); setLang(LANGS[(k + 1) % LANGS.length].code); return; }
   var el = e.target.closest('[data-go],[data-back],[data-pick],[data-toggle]'); if (!el) return;
-  if (el.dataset.pick){ var p = el.dataset.pick.split(':'); S[p[0]] = p[1]; sync(); if (el.dataset.advance) setTimeout(function(){ go(el.dataset.advance); }, 170); return; }
+  if (el.dataset.pick){ var p = el.dataset.pick.split(':'); S[p[0]] = p[1]; sync(); if (el.dataset.advance) setTimeout(function(){ go(nextOf(el.dataset.advance)); }, 170); return; }
   if (el.dataset.toggle){ var q = el.dataset.toggle.split(':'), a = S[q[0]] = S[q[0]] || [], i = a.indexOf(q[1]); if (i > -1) a.splice(i, 1); else a.push(q[1]); sync(); return; }
   if ('back' in el.dataset) return back();
-  go(el.dataset.go);
+  go(nextOf(el.dataset.go));
 });
 document.querySelectorAll('[data-input]').forEach(function(inp){
   inp.value = S[inp.dataset.input] || ''; inp.addEventListener('input', function(){ S[inp.dataset.input] = inp.value.trim() || 'there'; sync(); });
@@ -1829,6 +2214,11 @@ function tourInit(){
   var rows = {}; (D.rows || []).forEach(function(r){ rows[r.id] = r; });
   var caps = D.stepCaps || {}, steps = document.getElementById('duoSteps'), tbl = document.getElementById('duoTbl');
   var stage = document.getElementById('duoStage');
+  /* per-ad versions: a step may name a different screen per flow ({id, label, ids:{a:'pw-a', b:'pw-b'}}) */
+  var STEPS = (D.steps || []).filter(function(s){ return s.id; });
+  function sid(s, k){ return (s.ids && s.ids[k]) || s.id; }
+  function stepOf(k, scrId){ return STEPS.find(function(s){ return sid(s, k) === scrId; }); }
+  function stepFor(scrId){ for (var i = 0; i < F.length; i++) { var s = stepOf(F[i].k, scrId); if (s) return s; } return null; }
 
   function cw(i){ return W[i] && W[i].contentWindow && W[i].contentWindow.jump ? W[i].contentWindow : null; }
   function label(id){ var s = (D.steps || []).find(function(x){ return x.id === id; }); if (s && s.label) return s.label; var w = cw(0); return (w && w.C.chips && w.C.chips[id]) || id; }
@@ -1843,15 +2233,19 @@ function tourInit(){
     });
     var sc = document.getElementById('duoStepCap'); if (sc) sc.innerHTML = shared && id === 'today' ? shared : '';
   }
-  function both(id, n){
-    busy = true; F.forEach(function(f, i){ var w = cw(i); if (w && w.cur !== id) w.jump(id); }); busy = false; paintStep(id);
-    if (n) setTimeout(function(){ F.forEach(function(f, i){ var w = cw(i); if (w && w.pulseIdea) w.pulseIdea(n); }); }, 380);
+  function both(id, n, only){
+    var st = STEPS.find(function(s){ return s.id === id; }) || stepFor(id);
+    busy = true; F.forEach(function(f, i){ var w = cw(i), t = st ? sid(st, f.k) : id; if (w && w.cur !== t) w.jump(t); }); busy = false; paintStep(st ? st.id : id);
+    if (n) setTimeout(function(){ F.forEach(function(f, i){ var w = cw(i); if (w && w.pulseIdea && (!only || only === f.k)) w.pulseIdea(n); }); }, 380);
+    root.querySelectorAll('[data-duorec]').forEach(function(b){ b.classList.toggle('on', !!only && b.dataset.duorec === only + ':' + String(n).slice(1)); });
     root.querySelectorAll('[data-duoidea]').forEach(function(b){ b.classList.toggle('on', +b.dataset.duoidea === n); });
   }
   function follow(i, id){
     if (busy) return;
-    busy = true; F.forEach(function(f, j){ var w = cw(j); if (j !== i && w && w.cur !== id) w.jump(id); }); busy = false;
-    paintStep(id);
+    var st = stepOf(F[i].k, id);
+    busy = true; F.forEach(function(f, j){ var w = cw(j), t = st ? sid(st, f.k) : id; if (j !== i && w && w.cur !== t) w.jump(t); }); busy = false;
+    paintStep(st ? st.id : id);
+    root.querySelectorAll('[data-duorec]').forEach(function(b){ b.classList.remove('on'); });
     root.querySelectorAll('[data-duoidea]').forEach(function(b){ b.classList.remove('on'); });
   }
   var ready_n = 0;
@@ -1889,6 +2283,14 @@ function tourInit(){
   var ib = document.getElementById('duoIdeas');
   if (ib && window.C && C.ideas) ib.innerHTML = '<span class="au-duo-sep">The five ideas</span>' + C.ideas.map(function(d, i){
     return '<button type="button" data-duoidea="' + (i + 1) + '" data-scr="' + d.screen + '"><i>' + (i + 1) + '</i>' + d.title + '</button>'; }).join('');
+  /* per-ad recommendations under each phone: flows[k].recs = [{step, title, why, impact, il}], pulse data-hl="<k><n>" */
+  F.forEach(function(f){
+    var box = document.getElementById('duoRec' + f.k); if (!box || !f.recs) return;
+    box.innerHTML = (f.version ? '<p class="au-rec-v">' + f.version + '</p>' : '') + f.recs.map(function(r, i){
+      return '<button type="button" class="au-rec" data-duorec="' + f.k + ':' + (i + 1) + '" data-step="' + r.step + '"><i>' + f.k.toUpperCase() + (i + 1) + '</i>' +
+        '<span><b>' + r.title + '</b><em>' + r.why + '</em></span>' + (r.impact ? '<mark>' + r.impact + '<small>' + (r.il || '') + '</small></mark>' : '') + '</button>';
+    }).join('');
+  });
   /* the table: one row per step that differs */
   if (tbl) {
     var h = '<caption>' + D.tableTitle + '<span>' + D.tableSub + '</span></caption><thead><tr><th>Screen</th>' +
@@ -1906,6 +2308,7 @@ function tourInit(){
   root.addEventListener('click', function(e){
     var b = e.target.closest('[data-duo]'); if (b) { both(b.dataset.duo); toStage(); return; }
     var n = e.target.closest('[data-duoidea]'); if (n) { both(n.dataset.scr, +n.dataset.duoidea); return; }
+    var rc = e.target.closest('[data-duorec]'); if (rc) { var q = rc.dataset.duorec.split(':'); both(rc.dataset.step, q[0] + q[1], q[0]); return; }
     var g = e.target.closest('[data-duogo]'); if (g) { both(F.length && cw(0) ? cw(0).ORDER[0] : 'ad'); toStage(g.dataset.duogo); return; }
     var t = e.target.closest('[data-duoone]');
     if (t) { stage.dataset.one = t.dataset.duoone; root.querySelectorAll('[data-duoone]').forEach(function(x){ x.classList.toggle('on', x === t); }); }
@@ -1920,5 +2323,117 @@ function tourInit(){
 })();
 /* DUO:END */
 </script>
+<script>
+/* MOTION:START — hero words + icon, scroll reveal, count-up, and the live walkthrough in the ad phones. Config: #motionData. */
+(function run(){
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', run); return; }
+  var Q = location.search, H = document.documentElement;
+  if (/[?&](embed|shot|phone|tour|hero|app)\b/.test(Q) || H.classList.contains('appmode')) return;
+  var el = document.getElementById('motionData'); if (!el) return;
+  var M = JSON.parse(el.textContent), RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+
+  /* hero: the app's colour, its own words drifting across, the icon bobbing, a stats strip under it */
+  var hero = $('.au-top-hero');
+  if (hero && M.hero) {
+    hero.classList.add('au-mx');
+    var w = M.hero.words || [], h = '';
+    w.forEach(function(t, k){ h += '<span style="top:' + (4 + k * (88 / Math.max(w.length, 1))).toFixed(1) + '%;animation-duration:' + (16 + (k * 7) % 11) + 's;animation-delay:-' + ((k * 3.7) % 16).toFixed(1) + 's;font-size:' + (18 + (k * 5) % 16) + 'px">' + t + '</span>'; });
+    var d = document.createElement('div'); d.className = 'au-mx-words'; d.setAttribute('aria-hidden', 'true'); d.innerHTML = h; hero.insertBefore(d, hero.firstChild);
+    if (M.hero.icon) { var im = document.createElement('img'); im.className = 'au-mx-icon'; im.src = M.hero.icon; im.alt = ''; hero.appendChild(im); }
+    if (M.hero.stats) { var st = document.createElement('div'); st.className = 'au-mx-stats';
+      st.innerHTML = M.hero.stats.map(function(s){ return '<div><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join(''); hero.parentNode.insertBefore(st, hero.nextSibling); }
+  }
+
+  /* count-up for stats and outcome numbers */
+  function countUp(n){
+    var t = n.textContent, m = /^([^\d]*)([\d.,]+)(.*)$/.exec(t); if (!m || RM) return;
+    var raw = m[2].replace(/,/g, ''), v = parseFloat(raw), dec = (raw.split('.')[1] || '').length, t0 = performance.now();
+    if (!isFinite(v) || v === 0) return;
+    (function f(){ var k = Math.min(1, (performance.now() - t0) / 900), e = 1 - Math.pow(1 - k, 3), x = (v * e).toFixed(dec);
+      if (m[2].indexOf(',') > -1) x = Number(x).toLocaleString('en-US'); n.textContent = m[1] + x + m[3]; if (k < 1) requestAnimationFrame(f); else n.textContent = t; })();
+  }
+  /* scroll reveal */
+  var rv = $$(M.reveal || '.au-sec .au-wrap > *, .au-idea, .au-pf-c, .au-mx-stats div');
+  rv.forEach(function(n){ n.classList.add('au-rv'); });
+  var cnt = $$(M.count || '.au-mx-stats b, .au-duo-stats b, .au-stat b');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (!e.isIntersecting) return; io.unobserve(e.target);
+      e.target.classList.add('au-in'); if (e.target._count) countUp(e.target); }); }, {rootMargin: '0px 0px -8% 0px'});
+    rv.forEach(function(n){ io.observe(n); });
+    cnt.forEach(function(n){ n._count = 1; io.observe(n); });
+  } else rv.forEach(function(n){ n.classList.add('au-in'); });
+
+  /* live walkthrough inside the three ad phones */
+  var stage = document.getElementById('duoStage'), data = document.getElementById('duoData'); if (!stage || !data) return;
+  var D = JSON.parse(data.textContent), F = D.flows, W = M.walk || {}, walk = {on: false, tok: 0};
+  var LABEL = W.button || '▶ Play the walkthrough in the phones';
+  var bar = document.createElement('div'); bar.className = 'au-walk';
+  bar.innerHTML = '<button type="button" id="walkBtn">' + LABEL + '</button><div class="au-walkbar" id="walkBar"><span id="walkTx"></span><i><b id="walkPr"></b></i></div>';
+  var head = $('#duo .au-duo-h'); head.parentNode.insertBefore(bar, head.nextSibling);
+  $$('.au-duo-fr').forEach(function(fr){ var f = document.createElement('div'); f.className = 'au-finger'; fr.appendChild(f); });
+  function frames(){ return F.map(function(f){ return $('#duoFr' + f.k + ' iframe'); }); }
+  function wait(ms, tk){ return new Promise(function(res, rej){ setTimeout(function(){ tk === walk.tok ? res() : rej('stop'); }, ms); }); }
+  function cap(t, p){ $('#walkTx').innerHTML = t; $('#walkPr').style.width = p + '%'; }
+  function vis(x){ return !!x && x.getClientRects().length > 0 && getComputedStyle(x).visibility !== 'hidden'; }
+  function target(i, which){
+    var fr = frames()[i], w = fr && fr.contentWindow; if (!w || !w.scr || !w.cur) return null;
+    var s = w.scr[w.cur], own = (W.taps || {})[w.cur], list = [];
+    if (own) list = (Array.isArray(own) ? own : [own]).map(function(q){ return $(q, s); });
+    else {
+      var picks = $$('[data-pick]:not([data-pick^="ad:"]),[data-toggle]', s).filter(vis);
+      if (picks.length && !picks.some(function(p){ return p.classList.contains('on'); })) list.push(picks[0]);
+      list.push($$('[data-go]:not([data-back]),[data-advance]', s).filter(vis).pop());
+    }
+    return list.filter(vis)[which] || null;
+  }
+  async function tap(i, el, tk){
+    var fr = frames()[i]; if (!el || !fr) return;
+    var box = fr.parentNode, f = $('.au-finger', box);
+    var b = box.getBoundingClientRect(), fb = fr.getBoundingClientRect(), sc = fb.width / fr.offsetWidth, r = el.getBoundingClientRect();
+    f.classList.add('on'); f.style.left = (fb.left - b.left + (r.left + r.width / 2) * sc) + 'px'; f.style.top = (fb.top - b.top + (r.top + r.height / 2) * sc) + 'px';
+    await wait(420, tk); f.classList.add('press'); await wait(130, tk); f.classList.remove('press');
+    /* answers are set in the phone's own state (no navigation); buttons are only pressed: the step bar moves every
+       phone together, so the three versions never race each other */
+    var w = fr.contentWindow, pk = el.dataset.pick, tg = el.dataset.toggle;
+    if (pk) { var p = pk.split(':'); w.S[p[0]] = p[1]; w.sync(); }
+    else if (tg) { var q = tg.split(':'), a = w.S[q[0]] = w.S[q[0]] || []; if (a.indexOf(q[1]) < 0) a.push(q[1]); w.sync(); }
+    await wait(120, tk);
+  }
+  function plain(s){ var d = document.createElement('div'); d.innerHTML = s || ''; return d.textContent; }
+  async function start(){
+    stop(); var tk = ++walk.tok; walk.on = true; $('#walkBtn').classList.add('on'); $('#walkBtn').textContent = '■ Stop'; $('#walkBar').classList.add('on'); bar.classList.add('on');
+    var steps = (D.steps || []).filter(function(s){ return s.id && (W.skip || ['today']).indexOf(s.id) < 0; }), n = steps.length;
+    var rows = {}; (D.rows || []).forEach(function(r){ rows[r.id] = r; });
+    try {
+      /* the phones' tops sit just under the sticky caption bar */
+      scrollTo({top: stage.getBoundingClientRect().top + scrollY - 190, behavior: RM ? 'auto' : 'smooth'});
+      for (var k = 0; k < n; k++) {
+        var s = steps[k], btn = $('#duoSteps button[data-id="' + s.id + '"]'); if (btn) btn.click();
+        cap((W.captions || {})[s.id] || ('<b>' + (btn ? btn.textContent : s.id) + '.</b> ' + (rows[s.id] ? 'Each ad gets its own version of this screen.' : (plain((D.stepCaps || {})[s.id]) || 'Same screen for every ad.'))), Math.round((k + 1) / (n + 1) * 100));
+        await wait(k ? 1500 : 2200, tk);
+        if (k === n - 1) break;
+        /* each phone taps through its own screen: an answer first if nothing is picked, then its button */
+        for (var pass = 0; pass < 2; pass++) {
+          var els = F.map(function(f, i){ return target(i, pass); });
+          if (!els.some(Boolean)) break;
+          await Promise.all(els.map(function(e, i){ return tap(i, e, tk); }));
+          await wait(300, tk);
+        }
+        $$('.au-finger').forEach(function(f){ f.classList.toggle('on', false); });
+      }
+      cap(W.end || 'That’s the three versions. Tap any phone, or a recommendation under it.', 100); await wait(2600, tk);
+    } catch (e) {}
+    stop();
+  }
+  function stop(){ if (!walk.on) return; walk.on = false; walk.tok++; $('#walkBtn').classList.remove('on'); $('#walkBtn').textContent = LABEL; $('#walkBar').classList.remove('on'); bar.classList.remove('on'); $$('.au-finger').forEach(function(f){ f.classList.remove('on'); }); }
+  $('#walkBtn').addEventListener('click', function(){ walk.on ? stop() : start(); });
+  document.addEventListener('pointerdown', function(e){ if (walk.on && e.isTrusted && !e.target.closest('#walkBtn') && e.target.closest('#duo')) stop(); }, true);
+  $$('[data-walk]').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); start(); }); });
+})();
+/* MOTION:END */
+</script>
+<script type="application/json" id="motionData">{"hero": {"words": ["Watching my baby grow in 3D is priceless", "Clementine", "13 weeks", "Blueberry", "If you're pregnant right now stop scrolling", "Strawberry", "Track your baby in 3D", "My pregnancy calendar", "Week by week", "Checklists for each trimester"], "icon": "assets/brand/appstore-icon.jpg", "stats": [["★ 4.8", "from 27K ratings on the US App Store"], ["25", "live Meta ads for the app, in three promises"], ["3", "versions of your onboarding, one per ad"], ["1", "paywall every install meets today"]]}, "walk": {"end": "That’s the three versions, one per ad. Tap any phone, or a recommendation under it.", "captions": {"ad": "<b>Three Meta ads, three new moms.</b> 3D baby, size every week, the calendar.", "weeks": "<b>How far along?</b> Each ad picks a different week to start from.", "paywall": "<b>Three paywalls.</b> Her baby on top · priced in her weeks · your timeline.", "offer": "<b>On close:</b> $9.99 monthly, once, for every version.", "value": "<b>First value, before any account.</b> Her 3D baby · her weeks · her calendar.", "ask": "<b>One question, asked after the payoff,</b> about what this ad promised.", "ready": "<b>Her program</b> names what she picked.", "remind": "<b>Notifications:</b> the trial reminder, or reminders for her appointments."}}, "heroWalk": "▶ Watch it play in the phones"}</script>
 </body>
 </html>
